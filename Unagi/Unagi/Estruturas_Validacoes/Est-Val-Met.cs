@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+
 namespace Unagi
 {
     namespace Metodos
     {
         public static class Arquivo
-        {
+        {            
             public static void CarregaMidias(Estrutura.Lista L)
             {
                 if (!File.Exists("Banco.txt"))
@@ -20,7 +21,7 @@ namespace Unagi
                 string[] arquivo = File.ReadAllLines("Banco.txt");
                 foreach(string s in arquivo)
                 {
-                    string[] linha = s.Split();
+                    string[] linha = s.Split('|');
                     switch (linha[0])
                     {
                         case "Musica":
@@ -29,25 +30,60 @@ namespace Unagi
                         case "Foto":
                             addFoto(linha);
                             break;
-                            
-
-
+                        case "Video":
+                            addVideo(linha);
+                            break;
                     }
                 }
 
-                void addMusica(string[] F)
+                void addMusica(string[] M) //tipo|id|descricao|duracao|volume|arquivo midia
                 {
+                    Musica obj = new Musica();
+                    obj.Id = Convert.ToInt32(M[1]);
+                    obj.Descricao = M[2];
+                    obj.Duracao = Convert.ToDouble(M[3]);
+                    obj.Volume = Convert.ToInt32(M[4]);
+                    obj.ArquivoMidia = M[5];
+
+                    Midia.tMidias.InserirNoFim(obj);
+                }
+                void addFoto(string[] F) //tipo|id|descricao|localizacao|megapixels|tempode exibicao|ano de lancamento|arquivo midia
+                {
+                    Foto obj = new Foto();
+                    obj.Id = Convert.ToInt32(F[1]);
+                    obj.Descricao = F[2];
+                    obj.Localizacao = F[3];
+                    obj.MegaPixels = Convert.ToDouble(F[4]);
+                    obj.TempoDeExibicao = Convert.ToInt32(F[5]);
+                    obj.AnoDeLancamento = Convert.ToInt32(F[6]);
+                    obj.ArquivoMidia = F[7];
+
+                    Midia.tMidias.InserirNoFim(obj);
 
                 }
-                void addFoto(string[] F)
+                void addVideo(string[] V) //tipo|id|descricao|possui legenda|ano de lancamento|arquivo midia
                 {
+                    Video obj = new Video();
+                    obj.Id = Convert.ToInt32(V[1]);
+                    obj.Descricao = V[2];
+                    obj.PossuiLegenda = Convert.ToBoolean(V[3]);
+                    obj.AnoDeLancamento = Convert.ToInt32(V[4]);
+                    obj.ArquivoMidia = V[5];
+
+                    Midia.tMidias.InserirNoFim(obj);
 
                 }
-                
-            
+
+
+            }
+
+            public static void SalvaMidias(Estrutura.Lista L)
+            {
+
             }
         }
 
+        
     }
 
     namespace Estrutura
