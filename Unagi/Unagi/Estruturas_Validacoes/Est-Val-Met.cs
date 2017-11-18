@@ -18,7 +18,7 @@ namespace Unagi
                 }
 
                 string[] arquivo = File.ReadAllLines("Banco.txt");
-                foreach(string s in arquivo)
+                foreach (string s in arquivo)
                 {
                     string[] linha = s.Split();
                     switch (linha[0])
@@ -29,22 +29,53 @@ namespace Unagi
                         case "Foto":
                             addFoto(linha);
                             break;
-                            
+                        case "Video":
+                            addVideo(linha);
+                            break;
+
+
 
 
                     }
                 }
 
-                void addMusica(string[] F)
+                void addMusica(string[] M)
                 {
+                    Musica obj = new Musica();
+                    obj.Id = Convert.ToInt32(M[1]);
+                    obj.Descricao = M[2];
+                    obj.Duracao = Convert.ToDouble(M[3]);
+                    obj.Volume = Convert.ToInt32(M[4]);
+                    obj.ArquivoMidia = M[5];
 
+                    Midia.tMidias.InserirNoFim(obj);
                 }
                 void addFoto(string[] F)
                 {
+                    Foto obj = new Foto();
+                    obj.Id = Convert.ToInt32(F[1]);
+                    obj.Descricao = F[2];
+                    obj.Localizacao = F[3];
+                    obj.MegaPixels = Convert.ToDouble(F[4]);
+                    obj.TempoDeExibicao = Convert.ToInt32(F[5]);
+                    obj.AnoDeLancamento = Convert.ToInt32(F[6]);
+                    obj.ArquivoMidia = F[7];
 
+                    Midia.tMidias.InserirNoFim(obj);
                 }
-                
-            
+                void addVideo(string[] V)
+                {
+                    Video obj = new Video();
+                    obj.Id = Convert.ToInt32(V[1]);
+                    obj.Descricao = V[2];
+                    obj.PossuiLegenda = Convert.ToBoolean(V[3]);
+                    obj.AnoDeLancamento = Convert.ToInt32(V[4]);
+                    obj.ArquivoMidia = V[5];
+                    
+                    Midia.tMidias.InserirNoFim(obj);
+                }
+
+
             }
         }
 

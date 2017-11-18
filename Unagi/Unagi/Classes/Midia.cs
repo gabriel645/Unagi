@@ -10,6 +10,8 @@ namespace Unagi
 {
     public abstract class Midia
     {
+        public static Estrutura.Lista tMidias = new Estrutura.Lista();
+
         private int id;
         string descricao;
 
