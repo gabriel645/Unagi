@@ -9,7 +9,7 @@ namespace Unagi
     class AlbumMusical : Midia, ICatalogo
     {
         Lista Album = new Lista();  //add as musicas desse album na lista(criar metodo)
-
+        //teste
 
         string artista;
 
