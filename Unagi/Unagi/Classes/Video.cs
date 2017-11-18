@@ -5,10 +5,41 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Unagi
-{    
+{
     class Video : Midia, ILocal, ICatalogo
     {
-        //fazer enumerador : formato(AVI, WMV, MKV, MP4, MPEG, OUTROS????) e idioma (portugues, inglês, espanhol, outros)
+        public enum EnumIdioma
+        {
+            portugues,
+            ingles,
+            espanhol,
+            outros
+        }
+
+        public enum EnumFormVideo
+        {
+            AVI,
+            WMV,
+            MKV,
+            MP4,
+            MPEG,
+            outros
+        }
+
+        string formato;
+        public string Formato
+        {
+            get { return formato; }
+            set { formato = value; }
+        }
+
+        string idioma;
+        public string Idioma
+        {
+            get { return idioma; }
+            set { idioma = value; }
+        }
+
         private string arquivoMidia;
 
         public string ArquivoMidia
@@ -31,8 +62,8 @@ namespace Unagi
             set { possuiLegenda = value; }
         }
 
-        
-        
+
+
 
         public override void Alterar()
         {

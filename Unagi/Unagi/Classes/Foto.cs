@@ -10,6 +10,7 @@ namespace Unagi
 {
     class Foto : Midia, ILocal, ICatalogo
     {
+
         public static Lista ListaFotos = new Lista();
 
         private string localizacao;

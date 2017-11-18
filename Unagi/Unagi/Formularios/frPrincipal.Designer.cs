@@ -37,6 +37,10 @@
             this.bFDFD = new System.Windows.Forms.Button();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.button1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lbel1 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
@@ -49,7 +53,7 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.Color.Black;
-            this.button6.Location = new System.Drawing.Point(905, -3);
+            this.button6.Location = new System.Drawing.Point(1159, -3);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(55, 28);
             this.button6.TabIndex = 31;
@@ -65,9 +69,9 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(43, 210);
+            this.button3.Location = new System.Drawing.Point(952, 379);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(273, 39);
+            this.button3.Size = new System.Drawing.Size(262, 35);
             this.button3.TabIndex = 28;
             this.button3.Text = "GERENCIAR PLAYLISTS";
             this.button3.UseVisualStyleBackColor = false;
@@ -76,14 +80,14 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(93)))), ((int)(((byte)(158)))));
-            this.panelMenu.Controls.Add(this.button3);
             this.panelMenu.Controls.Add(this.btnCadastro);
             this.panelMenu.Controls.Add(this.pictureBox1);
             this.panelMenu.Controls.Add(this.bFDFD);
             this.panelMenu.Location = new System.Drawing.Point(1, 1);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(363, 415);
+            this.panelMenu.Size = new System.Drawing.Size(389, 453);
             this.panelMenu.TabIndex = 26;
+            this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenu_Paint);
             // 
             // btnCadastro
             // 
@@ -92,9 +96,9 @@
             this.btnCadastro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastro.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastro.ForeColor = System.Drawing.Color.Black;
-            this.btnCadastro.Location = new System.Drawing.Point(79, 165);
+            this.btnCadastro.Location = new System.Drawing.Point(-14, 216);
             this.btnCadastro.Name = "btnCadastro";
-            this.btnCadastro.Size = new System.Drawing.Size(201, 39);
+            this.btnCadastro.Size = new System.Drawing.Size(328, 41);
             this.btnCadastro.TabIndex = 24;
             this.btnCadastro.Text = "ADICIONAR MÍDIA";
             this.btnCadastro.UseVisualStyleBackColor = false;
@@ -103,7 +107,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(72, 29);
+            this.pictureBox1.Location = new System.Drawing.Point(92, 29);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(214, 49);
             this.pictureBox1.TabIndex = 22;
@@ -116,9 +120,9 @@
             this.bFDFD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bFDFD.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bFDFD.ForeColor = System.Drawing.Color.Black;
-            this.bFDFD.Location = new System.Drawing.Point(117, 358);
+            this.bFDFD.Location = new System.Drawing.Point(-5, 170);
             this.bFDFD.Name = "bFDFD";
-            this.bFDFD.Size = new System.Drawing.Size(125, 35);
+            this.bFDFD.Size = new System.Drawing.Size(319, 40);
             this.bFDFD.TabIndex = 23;
             this.bFDFD.Text = "SOBRE";
             this.bFDFD.UseVisualStyleBackColor = false;
@@ -127,10 +131,10 @@
             // axWindowsMediaPlayer1
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(363, 1);
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(387, 29);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(596, 415);
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(541, 385);
             this.axWindowsMediaPlayer1.TabIndex = 32;
             // 
             // button1
@@ -140,7 +144,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(869, -3);
+            this.button1.Location = new System.Drawing.Point(1123, -3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(35, 28);
             this.button1.TabIndex = 33;
@@ -148,12 +152,51 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button1.UseVisualStyleBackColor = false;
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(934, 68);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(268, 127);
+            this.panel1.TabIndex = 34;
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(952, 240);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(239, 124);
+            this.panel2.TabIndex = 35;
+            // 
+            // lbel1
+            // 
+            this.lbel1.AutoSize = true;
+            this.lbel1.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lbel1.Location = new System.Drawing.Point(952, 42);
+            this.lbel1.Name = "lbel1";
+            this.lbel1.Size = new System.Drawing.Size(89, 23);
+            this.lbel1.TabIndex = 25;
+            this.lbel1.Text = "Próximos";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(952, 214);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(77, 23);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Playlists";
+            // 
             // frPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(93)))), ((int)(((byte)(158)))));
-            this.ClientSize = new System.Drawing.Size(957, 414);
+            this.ClientSize = new System.Drawing.Size(1214, 455);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.lbel1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button1);
@@ -167,6 +210,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -180,5 +224,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lbel1;
+        private System.Windows.Forms.Label label1;
     }
 }

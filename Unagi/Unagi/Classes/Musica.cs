@@ -9,10 +9,21 @@ namespace Unagi
 {
     class Musica : Midia, ILocal
     {
-        //Fazer Enumerador de formato(MP3, WAV ou WMA);
-
+        public enum EnumFormato
+        {
+            MP3,
+            WAV,
+            WMA,
+            outros
+        }
         public static Lista ListaMusicas = new Lista();
-        
+
+        string formato;
+        public string Formato
+        {
+            get { return formato; }
+            set { formato = value; }
+        }
 
         double duracao;
         public double Duracao
