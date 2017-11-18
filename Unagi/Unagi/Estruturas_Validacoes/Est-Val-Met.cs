@@ -8,7 +8,7 @@ namespace Unagi
 {
     namespace Metodos
     {
-        public static class Arquivo
+        public static class Arquivo //asasd
         {            
             public static void CarregaMidias(Estrutura.Lista L)
             {
