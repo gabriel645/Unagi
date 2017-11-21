@@ -3,10 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Windows.Forms;
 namespace Unagi
 {
     namespace Metodos
     {
+        public static class Efeitos
+        {            
+            public static void mouseHovering(Button B, bool hovering)
+            {
+                
+                if (hovering && B.Width < 310)
+                    B.Width += 5;
+                else if (!hovering && B.Width > 300)
+                    B.Width -= 5;
+            }
+        }
         public static class Arquivo
         {
             public static void CarregaMidias(Estrutura.Lista L)
@@ -48,7 +60,7 @@ namespace Unagi
                     obj.Volume = Convert.ToInt32(M[4]);
                     obj.ArquivoMidia = M[5];
 
-                    Midia.tMidias.InserirNoFim(obj);
+                    L.InserirNoFim(obj);
                 }
                 void addFoto(string[] F)
                 {
@@ -61,7 +73,7 @@ namespace Unagi
                     obj.AnoDeLancamento = Convert.ToInt32(F[6]);
                     obj.ArquivoMidia = F[7];
 
-                    Midia.tMidias.InserirNoFim(obj);
+                    L.InserirNoFim(obj);
                 }
                 void addVideo(string[] V)
                 {
@@ -71,12 +83,26 @@ namespace Unagi
                     obj.PossuiLegenda = Convert.ToBoolean(V[3]);
                     obj.AnoDeLancamento = Convert.ToInt32(V[4]);
                     obj.ArquivoMidia = V[5];
-                    
-                    Midia.tMidias.InserirNoFim(obj);
+
+                    L.InserirNoFim(obj);
+                }
+            }
+
+            public static void SalvarMidias(Estrutura.Lista L)
+            {
+                if (!File.Exists("Banco.txt"))
+                {
+                    File.Create("Banco.txt");
                 }
 
+                foreach (Midia obj in L)
+                {
+                    StreamWriter Writer = File.AppendText("Banco.txt");
+                    Writer.WriteLine(obj.ToString());
+                }
 
             }
+
         }
 
     }

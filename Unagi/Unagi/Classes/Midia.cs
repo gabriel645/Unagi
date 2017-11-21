@@ -48,6 +48,11 @@ namespace Unagi
         public abstract void Excluir();
 
         public abstract void Consultar(int id);
+
+        public override string ToString()
+        {
+            return Id.ToString() + "|" + Descricao +"|";
+        }
     }
 }
 

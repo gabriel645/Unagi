@@ -11,9 +11,10 @@ namespace Unagi
     {
         public enum EnumFormato
         {
-            MP3,
+            MP3 = 0,
             WAV,
             WMA,
+            M4A,
             outros
         }
         public static Lista ListaMusicas = new Lista();
@@ -98,6 +99,11 @@ namespace Unagi
         public bool validaCaminho(string path)
         {
             return File.Exists(path);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + Duracao.ToString() +"|"+ Volume.ToString() +"|"+ ArquivoMidia;
         }
     }
 }

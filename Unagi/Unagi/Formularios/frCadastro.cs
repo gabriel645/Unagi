@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Unagi.Estrutura;
+using Unagi.Metodos;
 
 namespace Unagi.Formularios
 {
@@ -20,8 +21,15 @@ namespace Unagi.Formularios
         {
             InitializeComponent();
             originalWidth = this.Width;
-            originalHeight = this.Height;
+            originalHeight = this.Height;            
+
+            this.components = new Container();
+            this.timer1 = new Timer(this.components);
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timer1.Interval = 1;
         }
+
         void CarregaEnums()
         {
             foreach (var item in Enum.GetValues(typeof(Video.EnumFormVideo)))
@@ -49,11 +57,38 @@ namespace Unagi.Formularios
             }
             return fullPath;
         }
+        #region Timer(Animações)
+        private Timer timer1;
 
-        #region Configurações da Tela
+        private bool telaAumenta = false;
+        private bool telaDiminui = false;
+        private Button B = new Button();
+        private bool btnDeforma = false;
+        private void timer1_Tick(object sender, System.EventArgs e)
+        {
+            if (telaAumenta)
+                if (this.Width < 1214)
+                    this.Width += 50;
+            if (telaDiminui)
+                if (this.Width > 391)
+                    this.Width -= 50;
+
+            Efeitos.mouseHovering(B, btnDeforma);
+
+
+        }
+        #endregion
+
+        #region Configurações da Tela       
+
         private void btnCadastroMusica_Click_1(object sender, EventArgs e)
         {
-            this.Width = 1214;
+            //this.Width = 1214;            
+            if (telaAumenta)
+            { telaAumenta = false; telaDiminui = true; }
+            else
+            { telaAumenta = true; telaDiminui = false; }
+
             panelMusica.Visible = true;
             panelAlbum.Visible = false;
             panelVideo.Visible = false;
@@ -62,7 +97,10 @@ namespace Unagi.Formularios
 
         private void btnCadastroAlbum_Click_1(object sender, EventArgs e)
         {
-            this.Width = 1214;
+            if (telaAumenta)
+            { telaAumenta = false; telaDiminui = true; }
+            else
+            { telaAumenta = true; telaDiminui = false; }
             panelMusica.Visible = false;
             panelAlbum.Visible = true;
             panelVideo.Visible = false;
@@ -71,7 +109,10 @@ namespace Unagi.Formularios
 
         private void bntCadastroVideo_Click_1(object sender, EventArgs e)
         {
-            this.Width = 1214;
+            if (telaAumenta)
+            { telaAumenta = false; telaDiminui = true; }
+            else
+            { telaAumenta = true; telaDiminui = false; }
             panelMusica.Visible = false;
             panelAlbum.Visible = false;
             panelVideo.Visible = true;
@@ -80,7 +121,10 @@ namespace Unagi.Formularios
 
         private void btnCadastroFoto_Click_1(object sender, EventArgs e)
         {
-            this.Width = 1214;
+            if (telaAumenta)
+            { telaAumenta = false; telaDiminui = true; }
+            else
+            { telaAumenta = true; telaDiminui = false; }
             panelMusica.Visible = false;
             panelAlbum.Visible = false;
             panelVideo.Visible = false;
@@ -91,6 +135,7 @@ namespace Unagi.Formularios
         {
             Close();
         }
+
         #endregion
 
         #region Cadastrando Música
@@ -106,8 +151,10 @@ namespace Unagi.Formularios
             M.Incluir(M);
         }
         private void btnDiretorioMusica_Click(object sender, EventArgs e) //Retorna diretorio da musica
-        {
-            txtDiretorioMusica.Text = RetornaDiretorio();
+        {            
+            txtDiretorioMusica.Text = RetornaDiretorio();           
+            string formato = Path.GetExtension(txtDiretorioMusica.Text).Substring(1).ToUpper();           
+            cbFormatoMusica.SelectedIndex = (int)((Musica.EnumFormato)Enum.Parse(typeof(Musica.EnumFormato), formato));
         }
         private void btnConsultarMusica_Click(object sender, EventArgs e) //Chama a lista de Musica
         {
@@ -185,6 +232,92 @@ namespace Unagi.Formularios
 
         }
 
+        #region Efeitos Nos Botões
+        private void btnCadastroMusica_MouseHover(object sender, EventArgs e)
+        {
+            if (B.Width <= 300)
+            {
+                B = btnCadastroMusica;
+                btnDeforma = true;
+            }
+        }
 
+        private void btnCadastroMusica_MouseLeave(object sender, EventArgs e)
+        {
+            btnDeforma = false;
+        }
+
+        private void btnCadastroMusica_MouseEnter(object sender, EventArgs e)
+        {
+            if (B.Width <= 300)
+            {
+                B = btnCadastroMusica;
+                btnDeforma = true;
+
+            }
+        }
+
+        private void btnCadastroAlbum_MouseEnter(object sender, EventArgs e)
+        {
+            if (B.Width <= 300)
+            {
+                B = btnCadastroAlbum;
+                btnDeforma = true;
+            }
+        }
+
+        private void btnCadastroAlbum_MouseLeave(object sender, EventArgs e)
+        {
+            btnDeforma = false;
+        }
+
+        private void bntCadastroVideo_MouseEnter(object sender, EventArgs e)
+        {
+            if (B.Width <= 300)
+            {
+                B = bntCadastroVideo;
+                btnDeforma = true;
+            }
+        }
+
+        private void bntCadastroVideo_MouseLeave(object sender, EventArgs e)
+        {
+            btnDeforma = false;
+        }
+
+        private void btnCadastroFoto_MouseEnter(object sender, EventArgs e)
+        {
+            if (B.Width <= 300)
+            {
+                B = btnCadastroFoto;
+                btnDeforma = true;
+            }
+        }
+
+        private void btnCadastroFoto_MouseLeave(object sender, EventArgs e)
+        {
+            btnDeforma = false;
+        }
+
+        private void btnCadastroAlbum_MouseHover(object sender, EventArgs e)
+        {
+            if (B.Width <= 300)
+            {
+                B = btnCadastroAlbum;
+                btnDeforma = true;
+            }
+        }
+
+        private void bntCadastroVideo_MouseHover(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCadastroFoto_MouseHover(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
     }
 }
