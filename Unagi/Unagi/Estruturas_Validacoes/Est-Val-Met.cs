@@ -32,7 +32,7 @@ namespace Unagi
                 string[] arquivo = File.ReadAllLines("Banco.txt");
                 foreach (string s in arquivo)
                 {
-                    string[] linha = s.Split();
+                    string[] linha = s.Split('|');
                     switch (linha[0])
                     {
                         case "Musica":
@@ -44,10 +44,6 @@ namespace Unagi
                         case "Video":
                             addVideo(linha);
                             break;
-
-
-
-
                     }
                 }
 
@@ -61,6 +57,7 @@ namespace Unagi
                     obj.ArquivoMidia = M[5];
 
                     L.InserirNoFim(obj);
+                    Musica.ListaMusicas.InserirNoFim(obj);
                 }
                 void addFoto(string[] F)
                 {
@@ -92,14 +89,18 @@ namespace Unagi
             {
                 if (!File.Exists("Banco.txt"))
                 {
-                    File.Create("Banco.txt");
+                    File.Create("Banco.txt").Close();                    
                 }
 
+                File.WriteAllText("Banco.txt", string.Empty);
+
+                StreamWriter Writer = File.AppendText("Banco.txt");
                 foreach (Midia obj in L)
-                {
-                    StreamWriter Writer = File.AppendText("Banco.txt");
+                {                                        
                     Writer.WriteLine(obj.ToString());
                 }
+
+                Writer.Close();
 
             }
 
@@ -155,7 +156,7 @@ namespace Unagi
                 anterior = null;
             }
         }
-        public class Lista : IEnumerable
+        public class Lista : IEnumerable, IEnumerator
         {
             Nodo primeiro = null;
             Nodo ultimo = null;
@@ -286,6 +287,12 @@ namespace Unagi
                 return false;
             }
 
+            public void Clear()
+            {
+                primeiro = null;
+            }
+
+
             public int RetornaPosicao(object dado)
             {
                 int pos = 0;
@@ -300,13 +307,7 @@ namespace Unagi
                 pos = -1;
                 return pos;
             }
-
-
-            /// <summary>
-            /// Método listar recursivo
-            /// </summary>
-            /// <param name=""></param>
-            /// <returns></returns>           
+                    
 
 
             public Nodo RetornaPrimeiro()
@@ -314,7 +315,7 @@ namespace Unagi
                 return primeiro;
             }
 
-            Nodo nodoAtualParaForEach = null;
+            
 
             public bool MoveNext()
             {
@@ -326,26 +327,26 @@ namespace Unagi
                 return nodoAtualParaForEach != null;
             }
 
+            Nodo nodoAtualParaForEach;
             public void Reset()
             {
-                nodoAtualParaForEach = null;
+                nodoAtualParaForEach = new Nodo();                
             }
 
             public IEnumerator GetEnumerator()
             {
-                Reset();
-                //return this as IEnumerator;
                 return (IEnumerator)this;
             }
 
-
-            public object Current
+            object IEnumerator.Current
             {
                 get
                 {
                     return nodoAtualParaForEach.Dado;
                 }
             }
+
+            
         }
     }
 

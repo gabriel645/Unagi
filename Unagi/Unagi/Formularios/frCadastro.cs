@@ -13,6 +13,8 @@ using Unagi.Metodos;
 
 namespace Unagi.Formularios
 {
+
+
     public partial class frCadastro : Form
     {
         private int originalWidth;
@@ -21,7 +23,9 @@ namespace Unagi.Formularios
         {
             InitializeComponent();
             originalWidth = this.Width;
-            originalHeight = this.Height;            
+            originalHeight = this.Height;
+
+            lBMusicas.DisplayMember = "Descricao";
 
             this.components = new Container();
             this.timer1 = new Timer(this.components);
@@ -57,7 +61,7 @@ namespace Unagi.Formularios
             }
             return fullPath;
         }
-        #region Timer(Animações)
+        #region Timer(Animações/Atualiza)
         private Timer timer1;
 
         private bool telaAumenta = false;
@@ -66,6 +70,7 @@ namespace Unagi.Formularios
         private bool btnDeforma = false;
         private void timer1_Tick(object sender, System.EventArgs e)
         {
+            #region Animações
             if (telaAumenta)
                 if (this.Width < 1214)
                     this.Width += 50;
@@ -74,10 +79,25 @@ namespace Unagi.Formularios
                     this.Width -= 50;
 
             Efeitos.mouseHovering(B, btnDeforma);
+            #endregion
 
+            #region Atualização
+            atualizaLista();
+            #endregion 
 
         }
         #endregion
+
+        private void atualizaLista()
+        {            
+            foreach (Musica M in Musica.ListaMusicas)
+            {
+                if(!lBMusicas.Items.Contains(M))
+                {
+                    lBMusicas.Items.Add(M);                    
+                }
+            }           
+        }
 
         #region Configurações da Tela       
 
@@ -133,12 +153,18 @@ namespace Unagi.Formularios
 
         private void btnVoltar_Click_1(object sender, EventArgs e)
         {
+            //SALVAR AS OUTRAS MIDIAS TAMBÉM            
+            Midia.tMidias.Clear();
+            foreach (Midia M in Musica.ListaMusicas)                
+                    Midia.tMidias.InserirNoFim(M);
+            Arquivo.SalvarMidias(Musica.tMidias);
             Close();
         }
 
         #endregion
 
         #region Cadastrando Música
+        //Lista listaParalelaMusicas = new Lista();
         private void btnSalvarMusica_Click(object sender, EventArgs e)
         {
             Musica M = new Musica();
@@ -148,7 +174,7 @@ namespace Unagi.Formularios
             M.Volume = Convert.ToInt32(txtVolumeMusica.Text);
             M.Duracao = Convert.ToDouble(txtDuracaoMusica.Text);
             M.Formato = cbFormatoMusica.SelectedItem.ToString();
-            M.Incluir(M);
+            M.Incluir(M);            
         }
         private void btnDiretorioMusica_Click(object sender, EventArgs e) //Retorna diretorio da musica
         {            
@@ -162,6 +188,7 @@ namespace Unagi.Formularios
             telaLista.Location = new Point(321, 223);
             telaLista.Show();*/
             //seleciona a musica > clica > carrega os dados
+            Musica M = (Musica)lBMusicas.SelectedItem;
         }
         #endregion
 

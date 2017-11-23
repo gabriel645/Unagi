@@ -23,7 +23,9 @@ namespace Unagi
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Arquivo.CarregaMidias(Midia.tMidias);
             Application.Run(new frPrincipal());
+            
         }
     }
 }

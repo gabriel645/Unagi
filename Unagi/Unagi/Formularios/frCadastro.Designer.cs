@@ -537,7 +537,7 @@
             this.btnSalvarMusica.Name = "btnSalvarMusica";
             this.btnSalvarMusica.Size = new System.Drawing.Size(159, 31);
             this.btnSalvarMusica.TabIndex = 11;
-            this.btnSalvarMusica.Text = "SALVAR";
+            this.btnSalvarMusica.Text = "ADICIONAR";
             this.btnSalvarMusica.UseVisualStyleBackColor = false;
             this.btnSalvarMusica.Click += new System.EventHandler(this.btnSalvarMusica_Click);
             // 
@@ -596,10 +596,12 @@
             // 
             // lBMusicas
             // 
+            this.lBMusicas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(167)))), ((int)(((byte)(182)))));
+            this.lBMusicas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lBMusicas.FormattingEnabled = true;
             this.lBMusicas.Location = new System.Drawing.Point(556, 87);
             this.lBMusicas.Name = "lBMusicas";
-            this.lBMusicas.Size = new System.Drawing.Size(257, 342);
+            this.lBMusicas.Size = new System.Drawing.Size(257, 338);
             this.lBMusicas.TabIndex = 0;
             this.lBMusicas.SelectedIndexChanged += new System.EventHandler(this.lBMusicas_SelectedIndexChanged);
             // 
@@ -1078,7 +1080,7 @@
             this.btnCadastroMusica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastroMusica.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastroMusica.ForeColor = System.Drawing.Color.Black;
-            this.btnCadastroMusica.Location = new System.Drawing.Point(0, 79);
+            this.btnCadastroMusica.Location = new System.Drawing.Point(0, 45);
             this.btnCadastroMusica.Name = "btnCadastroMusica";
             this.btnCadastroMusica.Size = new System.Drawing.Size(299, 39);
             this.btnCadastroMusica.TabIndex = 37;
@@ -1096,7 +1098,7 @@
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltar.ForeColor = System.Drawing.Color.Black;
-            this.btnVoltar.Location = new System.Drawing.Point(0, 355);
+            this.btnVoltar.Location = new System.Drawing.Point(0, 378);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(299, 39);
             this.btnVoltar.TabIndex = 41;
@@ -1112,7 +1114,7 @@
             this.btnCadastroAlbum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastroAlbum.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastroAlbum.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.btnCadastroAlbum.Location = new System.Drawing.Point(0, 133);
+            this.btnCadastroAlbum.Location = new System.Drawing.Point(0, 99);
             this.btnCadastroAlbum.Name = "btnCadastroAlbum";
             this.btnCadastroAlbum.Size = new System.Drawing.Size(299, 39);
             this.btnCadastroAlbum.TabIndex = 38;
@@ -1130,7 +1132,7 @@
             this.btnCadastroFoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastroFoto.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastroFoto.ForeColor = System.Drawing.Color.Black;
-            this.btnCadastroFoto.Location = new System.Drawing.Point(0, 241);
+            this.btnCadastroFoto.Location = new System.Drawing.Point(0, 207);
             this.btnCadastroFoto.Name = "btnCadastroFoto";
             this.btnCadastroFoto.Size = new System.Drawing.Size(299, 39);
             this.btnCadastroFoto.TabIndex = 40;
@@ -1147,7 +1149,7 @@
             this.bntCadastroVideo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bntCadastroVideo.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bntCadastroVideo.ForeColor = System.Drawing.Color.Black;
-            this.bntCadastroVideo.Location = new System.Drawing.Point(0, 188);
+            this.bntCadastroVideo.Location = new System.Drawing.Point(0, 154);
             this.bntCadastroVideo.Name = "bntCadastroVideo";
             this.bntCadastroVideo.Size = new System.Drawing.Size(299, 39);
             this.bntCadastroVideo.TabIndex = 39;
