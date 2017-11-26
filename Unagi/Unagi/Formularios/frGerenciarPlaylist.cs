@@ -64,7 +64,7 @@ namespace Unagi
         private void btnAddPlaylist_Click(object sender, EventArgs e)
         {
             lbPlaylist.DisplayMember = "Descricao";
-            lbPlaylist.Items.Add(lbMidias.SelectedItem.ToString());
+            lbPlaylist.Items.Add(lbMidias.SelectedItem);
         }
 
         private void lbPlaylist_SelectedIndexChanged(object sender, EventArgs e)
@@ -76,23 +76,16 @@ namespace Unagi
         {
             Playlists P = new Playlists();
             P.nomePlaylist = txtNomePlaylist.Text;
-            string[] auxiliar = new string[lbPlaylist.Items.Count];
+            //string[] auxiliar = new string[lbPlaylist.Items.Count];
 
-            for (int i = 0; i < auxiliar.Length; i++)
+            foreach (Midia item in lbPlaylist.Items) // e tentei assim tb
             {
-
-                auxiliar[i] += "|" + lbPlaylist.Text.ToString();
-
-
+                P.itens.InserirNoFim(item); 
             }
 
-            foreach (var item in lbPlaylist.Items)
-            {
-                int j = 0;
-
-                P.items[j] += "|" + item.ToString();
-                j++;
-            }
+            P.Incluir(P);
+            Midia.tMidias.InserirNoFim(P);
+            Arquivo.SalvarMidias(Midia.tMidias);
 
         }
 

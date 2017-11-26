@@ -46,9 +46,15 @@ namespace Unagi
                         case "Video":
                             addVideo(linha);
                             break;
-                        case "Playlist":
-                            addPlaylist(linha);
-                            break;
+
+                    }
+                }
+                foreach (string s in arquivo)
+                {
+                    string[] linha = s.Split('|');
+                    if (linha[0] == "Playlist")
+                    {
+                        addPlaylist(linha);
                     }
                 }
 
@@ -92,13 +98,18 @@ namespace Unagi
                 {
                     Playlists obj = new Playlists();
                     obj.nomePlaylist = P[1];
-                    /*foreach (var item in  )
+                    for (int i = 2; i < P.Length - 1; i++)
                     {
-                        int j = 0;
-                        obj.items[j] += "|" ;
-                        j++;
+                        foreach (Midia item in Midia.tMidias)
+                        {
+                            if (item.Id.ToString() == P[i])
+                            {
+                                obj.itens.InserirNoFim(item);
+                            }
+                        }
                     }
-                    L.InserirNoFim(obj);*/
+                    L.InserirNoFim(obj);
+
                 }
             }
 
@@ -121,7 +132,7 @@ namespace Unagi
 
             }
 
-            
+
         }
 
 

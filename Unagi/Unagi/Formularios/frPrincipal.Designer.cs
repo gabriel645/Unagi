@@ -41,10 +41,12 @@
             this.lbel1 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lbNomesPlaylists = new System.Windows.Forms.ListBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lbSelecPlaylist = new System.Windows.Forms.ListBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axMediaPlayer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // button6
@@ -72,7 +74,7 @@
             this.button3.ForeColor = System.Drawing.Color.Black;
             this.button3.Location = new System.Drawing.Point(956, 379);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(293, 35);
+            this.button3.Size = new System.Drawing.Size(303, 35);
             this.button3.TabIndex = 28;
             this.button3.Text = "GERENCIAR PLAYLISTS";
             this.button3.UseVisualStyleBackColor = false;
@@ -189,13 +191,22 @@
             this.lbNomesPlaylists.Size = new System.Drawing.Size(250, 134);
             this.lbNomesPlaylists.TabIndex = 36;
             // 
-            // listBox1
+            // lbSelecPlaylist
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(956, 240);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(258, 134);
-            this.listBox1.TabIndex = 36;
+            this.lbSelecPlaylist.FormattingEnabled = true;
+            this.lbSelecPlaylist.Location = new System.Drawing.Point(956, 240);
+            this.lbSelecPlaylist.Name = "lbSelecPlaylist";
+            this.lbSelecPlaylist.Size = new System.Drawing.Size(246, 121);
+            this.lbSelecPlaylist.TabIndex = 36;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(389, 29);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(540, 339);
+            this.pictureBox2.TabIndex = 37;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Visible = false;
             // 
             // frPrincipal
             // 
@@ -203,7 +214,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(93)))), ((int)(((byte)(158)))));
             this.ClientSize = new System.Drawing.Size(1250, 500);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.lbSelecPlaylist);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbel1);
@@ -220,6 +232,7 @@
             this.panelMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axMediaPlayer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,6 +252,7 @@
         private System.Windows.Forms.Label lbel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox lbNomesPlaylists;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lbSelecPlaylist;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
