@@ -7,15 +7,11 @@ using System.Threading.Tasks;
 namespace Unagi.Classes
 {
     public class Playlists
-    {
-        private string id;
+    {   
+        
         private string caminho;
         private string nomePlaylist;
-        public string Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
+        
 
         public string Caminho
         {

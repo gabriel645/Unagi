@@ -26,6 +26,8 @@ namespace Unagi.Formularios
             originalHeight = this.Height;
 
             lBMusicas.DisplayMember = "Descricao";
+            lBFoto.DisplayMember = "Descricao";
+            lBVideo.DisplayMember = "Descricao";
 
             this.components = new Container();
             this.timer1 = new Timer(this.components);
@@ -74,15 +76,17 @@ namespace Unagi.Formularios
                 System.IO.Directory.CreateDirectory(targetPath);
             }
 
-            System.IO.File.Copy(fullPath, destFile, true);
+            try
+            {
+                System.IO.File.Copy(fullPath, destFile, true);
+            }
+            catch{}
 
             return fullPath;
         }
 
         #region Timer(Animações/Atualiza)
-        private Timer timer1;
-
-        bool CLOSE = false;
+        private Timer timer1;        
 
         private bool telaAumenta = false;
         private bool telaDiminui = false;
@@ -119,6 +123,26 @@ namespace Unagi.Formularios
                 if (!Musica.ListaMusicas.Existe(M))
                 {
                     lBMusicas.Items.Remove(M);
+                    break;
+                }
+            foreach (Foto F in Foto.ListaFotos)
+                if (!lBFoto.Items.Contains(F))
+                    lBFoto.Items.Add(F);
+
+            foreach (Foto F in lBFoto.Items)
+                if (!Foto.ListaFotos.Existe(F))
+                {
+                    lBFoto.Items.Remove(F);
+                    break;
+                }
+            foreach (Video V in Video.ListaVideos)
+                if (!lBVideo.Items.Contains(V))
+                    lBVideo.Items.Add(V);
+
+            foreach (Video V in lBVideo.Items)
+                if (!Video.ListaVideos.Existe(V))
+                {
+                    lBVideo.Items.Remove(V);
                     break;
                 }
             return true;
@@ -183,6 +207,13 @@ namespace Unagi.Formularios
             //SALVAR AS OUTRAS MIDIAS TAMBÉM            
             Lista.comparDel(Midia.tMidias, Musica.ListaMusicas);
             Lista.comparaAdd(Musica.ListaMusicas, Midia.tMidias);
+
+            Lista.comparDel(Midia.tMidias, Foto.ListaFotos);
+            Lista.comparaAdd(Foto.ListaFotos, Midia.tMidias);
+
+            Lista.comparDel(Midia.tMidias, Video.ListaVideos);
+            Lista.comparaAdd(Video.ListaVideos, Midia.tMidias);
+
             Arquivo.SalvarMidias(Musica.tMidias);
             this.Close();
 
@@ -225,41 +256,43 @@ namespace Unagi.Formularios
             F.Localizacao = txtLocalFoto.Text;
             F.MegaPixels = Convert.ToInt32(txtMpFoto.Text);
             F.TempoDeExibicao = Convert.ToInt32(txtSegundosFoto.Text);
-            F.Incluir(F);
             F.AnoDeLancamento = Convert.ToInt32(txtFotoAno.Text);
+
+            F.Incluir(F);
         }
         private void button8_Click(object sender, EventArgs e) //Retorna diretório da foto (dá pra fazer um método, não?)
         {
-            txtDiretorioFoto.Text = RetornaDiretorio();
+            txtDiretorioFoto.Text = RetornaDiretorio();            
         }
         private void btnConsultaFoto_Click(object sender, EventArgs e) //Chama a lista de foto
         {
-            frLista telaLista = new frLista(Foto.ListaFotos);
-            telaLista.Location = new Point(321, 223);
-            telaLista.Show();
+            Foto M = (Foto)lBFoto.SelectedItem;
         }
         #endregion
 
         #region Cadastrando Video
-        private void btnSalvarVideo_Click(object sender, EventArgs e)
+        private void btnSalvarVideo_Click_1(object sender, EventArgs e)
         {
             Video V = new Video();
             V.Id = Convert.ToInt32(txtIdVideo.Text);
-            V.Descricao = txtIdVideo.Text;
+            V.Descricao = txtDescVideo.Text;
 
             if (cbLegendaVideo.SelectedItem.ToString() == "sim")
                 V.PossuiLegenda = true;
             else
                 V.PossuiLegenda = false;
 
-            V.Formato = cbFormatoMusica.SelectedItem.ToString();
+            V.Formato = cbFormatoVideo.SelectedItem.ToString();
             V.Idioma = cbIdiomaVideo.SelectedItem.ToString();
             V.AnoDeLancamento = Convert.ToInt32(txtAnoVideo.Text);
+            V.ArquivoMidia = txtDiretorioVideo.Text;
+            V.Incluir(V);
         }
-        private void btnDiretorioVideo_Click(object sender, EventArgs e)
+        private void btnDiretorioVideo_Click_1(object sender, EventArgs e)
         {
             txtDiretorioVideo.Text = RetornaDiretorio();
         }
+
         private void btnAlterarVideo_Click(object sender, EventArgs e)
         {
             //seleciona a musica > clica > carrega os dados
@@ -373,6 +406,16 @@ namespace Unagi.Formularios
         private void btnExcluirMusica_Click(object sender, EventArgs e)
         {
             Musica.ListaMusicas.RemoverObjeto(lBMusicas.SelectedItem);
+        }
+
+        private void btnExcluirFoto_Click(object sender, EventArgs e)
+        {
+            Foto.ListaFotos.RemoverObjeto(lBFoto.SelectedItem);
+        }
+
+        private void btnExcluirVideo_Click(object sender, EventArgs e)
+        {
+            Video.ListaVideos.RemoverObjeto(lBVideo.SelectedItem);
         }
     }
 }

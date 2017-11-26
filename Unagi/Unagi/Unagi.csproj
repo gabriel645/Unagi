@@ -84,12 +84,6 @@
     <Compile Include="Formularios\frSobre.Designer.cs">
       <DependentUpon>frSobre.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frLista.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\frLista.Designer.cs">
-      <DependentUpon>frLista.cs</DependentUpon>
-    </Compile>
     <Compile Include="Formularios\frGerenciarPlaylist.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,9 +100,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frGerenciarPlaylist.resx">
       <DependentUpon>frGerenciarPlaylist.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frLista.resx">
-      <DependentUpon>frLista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frPrincipal.resx">
       <DependentUpon>frPrincipal.cs</DependentUpon>

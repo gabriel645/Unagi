@@ -53,7 +53,7 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.Color.Black;
-            this.button6.Location = new System.Drawing.Point(1194, 1);
+            this.button6.Location = new System.Drawing.Point(1159, 1);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(55, 28);
             this.button6.TabIndex = 31;
@@ -145,7 +145,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(1158, 1);
+            this.button1.Location = new System.Drawing.Point(1123, 1);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(35, 28);
             this.button1.TabIndex = 33;
@@ -193,7 +193,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(93)))), ((int)(((byte)(158)))));
-            this.ClientSize = new System.Drawing.Size(1250, 500);
+            this.ClientSize = new System.Drawing.Size(1214, 455);
+            this.Controls.Add(this.lbNomesPlaylists);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbel1);

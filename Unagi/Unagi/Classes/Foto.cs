@@ -10,6 +10,10 @@ namespace Unagi
 {
     class Foto : Midia, ILocal, ICatalogo
     {
+        public override string ToString()
+        {
+            return "Foto" + "|" + base.ToString() + localizacao.ToString() + "|" + megaPixels.ToString() + "|" +tempoDeExibicao.ToString() + "|" + anoDeLancamento.ToString() + "|" + ArquivoMidia;
+        }
 
         public static Lista ListaFotos = new Lista();
 

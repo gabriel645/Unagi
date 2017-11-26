@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace Unagi
     class Video : Midia, ILocal, ICatalogo
     {
 
-        public static Lista ListaMVideos = new Lista();
+        public static Lista ListaVideos = new Lista();
         public enum EnumIdioma
         {
             portugues,
@@ -82,15 +83,33 @@ namespace Unagi
         {
             throw new NotImplementedException();
         }
+        public void Excluir(Video VPassado)
+        {
+            foreach (Video V in ListaVideos)
+            {
+                if (V.Id == VPassado.Id)
+                {
+                    ListaVideos.RemoverDaPosicao(ListaVideos.RetornaPosicao(V));
+                }
+            }
+        }
 
         public override void Incluir()
         {
             throw new NotImplementedException();
         }
+        public void Incluir(Video VPassado)
+        {
+            ListaVideos.InserirNoFim(VPassado);
+        }
 
         public bool validaCaminho(string path)
         {
-            throw new NotImplementedException();
+            return File.Exists(path);
+        }
+        public override string ToString()
+        {
+            return "Video" + "|" + base.ToString() + Formato.ToString() + "|" + Idioma.ToString() + "|" + PossuiLegenda.ToString() + "|" + anoDeLancamento.ToString() + "|" + ArquivoMidia;
         }
     }
 }

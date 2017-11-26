@@ -103,7 +103,7 @@ namespace Unagi
 
         public override string ToString()
         {
-            return "Musica" + "|" + base.ToString() + Duracao.ToString() +"|"+ Volume.ToString() +"|"+ ArquivoMidia;
+            return "Musica" + "|" + base.ToString() + Duracao.ToString() +"|"+ Volume.ToString() +"|"+ formato.ToString()+ "|" + ArquivoMidia;
         }
     }
 }

@@ -9,10 +9,10 @@ namespace Unagi
     namespace Metodos
     {
         public static class Efeitos
-        {            
+        {
             public static void mouseHovering(Button B, bool hovering)
             {
-                
+
                 if (hovering && B.Width < 310)
                     B.Width += 5;
                 else if (!hovering && B.Width > 300)
@@ -54,7 +54,8 @@ namespace Unagi
                     obj.Descricao = M[2];
                     obj.Duracao = Convert.ToDouble(M[3]);
                     obj.Volume = Convert.ToInt32(M[4]);
-                    obj.ArquivoMidia = M[5];
+                    obj.Formato = M[5];
+                    obj.ArquivoMidia = M[6];
 
                     L.InserirNoFim(obj);
                     Musica.ListaMusicas.InserirNoFim(obj);
@@ -71,17 +72,23 @@ namespace Unagi
                     obj.ArquivoMidia = F[7];
 
                     L.InserirNoFim(obj);
+                    Foto.ListaFotos.InserirNoFim(obj);
                 }
                 void addVideo(string[] V)
                 {
                     Video obj = new Video();
                     obj.Id = Convert.ToInt32(V[1]);
                     obj.Descricao = V[2];
-                    obj.PossuiLegenda = Convert.ToBoolean(V[3]);
-                    obj.AnoDeLancamento = Convert.ToInt32(V[4]);
-                    obj.ArquivoMidia = V[5];
+                    obj.Formato = V[3];
+                    obj.Idioma = V[4];
+                    obj.PossuiLegenda = Convert.ToBoolean(V[5]);
+                    obj.AnoDeLancamento = Convert.ToInt32(V[6]);
+
+                    obj.ArquivoMidia = V[7];
 
                     L.InserirNoFim(obj);
+                    Video.ListaVideos.InserirNoFim(obj);
+
                 }
             }
 
@@ -89,14 +96,14 @@ namespace Unagi
             {
                 if (!File.Exists("Banco.txt"))
                 {
-                    File.Create("Banco.txt").Close();                    
+                    File.Create("Banco.txt").Close();
                 }
 
                 File.WriteAllText("Banco.txt", string.Empty);
 
                 StreamWriter Writer = File.AppendText("Banco.txt");
                 foreach (Midia obj in L)
-                {                                        
+                {
                     Writer.WriteLine(obj.ToString());
                 }
 
@@ -211,7 +218,7 @@ namespace Unagi
                     InserirNaPosicao(ultimo, valor);
                 }
             }
-          
+
             /// <summary>
             /// Insere em uma posição, iniciando do 0
             /// </summary>
@@ -235,7 +242,7 @@ namespace Unagi
             }
 
 
-            public void  RemoverDaPosicao(int posicao)
+            public void RemoverDaPosicao(int posicao)
             {
                 if (posicao >= qtde || posicao < 0 || qtde == 0)
                     throw new Exception("Não é possível remover.");
@@ -271,12 +278,12 @@ namespace Unagi
 
                 }
             }
-            
+
             /// <summary>
             /// Remove a lista um objeto passado, se existir.
             /// </summary>
             /// <param name="obj"></param>
-            public  void RemoverObjeto(object obj)
+            public void RemoverObjeto(object obj)
             {
                 RemoverDaPosicao(RetornaPosicao(obj));
             }
@@ -298,7 +305,7 @@ namespace Unagi
             {
                 primeiro = null;
             }
-            
+
             #region Static Members
             /// <summary>
             /// Compara a com b e deleta objetos de a que nao estejam em b.
@@ -307,9 +314,9 @@ namespace Unagi
             /// <param name="b"></param>
             public static void comparDel(Lista a, Lista b)
             {
-                foreach(object o in a)
+                foreach (object o in a)
                 {
-                    if (!b.Existe(o))
+                    if (!b.Existe(o) && o.GetType() == a.primeiro.GetType())
                         a.RemoverObjeto(o);
                 }
             }
@@ -321,7 +328,7 @@ namespace Unagi
             /// <param name="b"></param>
             public static void comparaAdd(Lista a, Lista b)
             {
-                foreach(object o in a)
+                foreach (object o in a)
                 {
                     if (!b.Existe(o))
                         b.InserirNoFim(o);
@@ -345,7 +352,7 @@ namespace Unagi
             }
 
 
-            
+
             public Nodo RetornaPrimeiro()
             {
                 return primeiro;
@@ -366,7 +373,7 @@ namespace Unagi
             Nodo nodoAtualParaForEach;
             public void Reset()
             {
-                nodoAtualParaForEach = new Nodo();                
+                nodoAtualParaForEach = new Nodo();
             }
 
             public IEnumerator GetEnumerator()
@@ -381,7 +388,7 @@ namespace Unagi
                     return nodoAtualParaForEach.Dado;
                 }
             }
-#endregion
+            #endregion
 
         }
     }
@@ -391,7 +398,136 @@ namespace Unagi
 
     namespace Estrutura
     {
+        /// <summary>
+        /// Classe que irá representar 1 elemento na pilha
+        /// </summary>
+        class NodoPilha
+        {
+            private string valor;
+            private NodoPilha anterior;
+            /// <summary>
+            /// Valor que será armazenado
+            /// </summary>
+            public string Valor
+            {
+                get { return valor; }
+                set { valor = value; }
+            }
+            /// <summary>
+            /// Endereço do NodoPilha anterior na pilha
+            /// </summary>
+            public NodoPilha Anterior
+            {
+                get { return anterior; }
+                set { anterior = value; }
+            }
+        }
+        /// <summary>
+        /// Classe Pilha Dinâmica
+        /// </summary>
+        class Pilha
+        {
+            //Representa o topo da pilha
+            private NodoPilha topo = null;
+            // quantidade de elementos na pilha
+            int quantidade = 0;
+            public int Quantidade
+            {
+                get { return quantidade; }
+            }
+            /// <summary>
+            /// Método para empilhar strings
+            /// </summary>
+            /// <param name="valor"></param>
+            public void Empilhar(string valor)
+            {
+                NodoPilha novoNodoPilha = new NodoPilha();
+                novoNodoPilha.Valor = valor;
+                novoNodoPilha.Anterior = topo;
+                topo = novoNodoPilha;
+                quantidade++;
+            }
 
+            /// <summary>
+            /// Desempilhar elementos da pilha
+            /// </summary>
+            /// <returns></returns>
+            public string Desempilhar()
+            {
+                if (quantidade == 0)
+                    throw new Exception("A pilha está vazia!");
+                else
+                {
+                    string retorno = topo.Valor;
+                    topo = topo.Anterior;
+                    quantidade--;
+                    return retorno;
+                }
+            }
+            /// <summary>
+            /// Método para retornar o topo da pilha
+            /// </summary>
+            /// <returns></returns>
+            public string RetornaTopo()
+            {
+                if (quantidade == 0)
+                    throw new Exception("A pilha está vazia!");
+                else
+                {
+                    return topo.Valor;
+                }
+            }
+        }
+
+        namespace Estrutura
+        {
+            class Fila
+            {
+                public Fila(int capacidade)
+                {
+                    CAPACIDADE = capacidade;
+                }
+                int CAPACIDADE = 5; // capacidade máxima da fila
+                private int quantidade = 0; // qtde de elementos enfileirados
+                private int inicio = 0; // indica qual a primeira posição da fila
+                private int fim = 0; // indica a próxima posição
+                private string[] dados = new string[CAPACIDADE]; // armazenar os dados da fila
+                                                                 // retorna o tamanho da fila
+                public int Tamanho()
+                {
+                    return quantidade;
+                }
+                // enfileira um valor string
+                public void Enfileirar(string p_valor)
+                {
+                    if (Tamanho() == CAPACIDADE)
+                    {
+                        throw new Exception("A fila está cheia!!!!");
+                    }
+                    else
+                    {
+                        dados[fim] = p_valor;
+                        fim = (fim + 1) % CAPACIDADE;
+                        quantidade++;
+                    }
+                }
+                // remove o primeiro elemento da fila e devolve.
+                public string Desenfileira()
+                {
+                    if (Tamanho() == 0)
+                    {
+                        throw new Exception("A fila está vazia!");
+                    }
+                    else
+                    {
+                        string valor = dados[inicio];
+                        inicio = (inicio + 1) % CAPACIDADE;
+                        quantidade--;
+                        return valor;
+                    }
+                }
+            }
+        }
     }
 
 
