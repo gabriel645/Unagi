@@ -51,6 +51,7 @@ namespace Unagi.Formularios
                 cbFormatoMusica.Items.Add(item);
             }
         }
+
         static string RetornaDiretorio()
         {
             string fullPath = "";
@@ -59,8 +60,21 @@ namespace Unagi.Formularios
             {
                 fullPath = Path.GetFullPath(FD.FileName);
             }
+
+            string fileName = "test";
+            string targetPath = @"\Midias";
+            string destFile = Path.Combine(targetPath, fileName);
+
+            if (!System.IO.Directory.Exists(targetPath))
+            {
+                System.IO.Directory.CreateDirectory(targetPath);
+            }
+
+            System.IO.File.Copy(fullPath, destFile, true);
+
             return fullPath;
         }
+
         #region Timer(Animações/Atualiza)
         private Timer timer1;
 
@@ -89,14 +103,14 @@ namespace Unagi.Formularios
         #endregion
 
         private void atualizaLista()
-        {            
+        {
             foreach (Musica M in Musica.ListaMusicas)
             {
-                if(!lBMusicas.Items.Contains(M))
+                if (!lBMusicas.Items.Contains(M))
                 {
-                    lBMusicas.Items.Add(M);                    
+                    lBMusicas.Items.Add(M);
                 }
-            }           
+            }
         }
 
         #region Configurações da Tela       
@@ -155,8 +169,8 @@ namespace Unagi.Formularios
         {
             //SALVAR AS OUTRAS MIDIAS TAMBÉM            
             Midia.tMidias.Clear();
-            foreach (Midia M in Musica.ListaMusicas)                
-                    Midia.tMidias.InserirNoFim(M);
+            foreach (Midia M in Musica.ListaMusicas)
+                Midia.tMidias.InserirNoFim(M);
             Arquivo.SalvarMidias(Musica.tMidias);
             Close();
         }
@@ -174,12 +188,13 @@ namespace Unagi.Formularios
             M.Volume = Convert.ToInt32(txtVolumeMusica.Text);
             M.Duracao = Convert.ToDouble(txtDuracaoMusica.Text);
             M.Formato = cbFormatoMusica.SelectedItem.ToString();
-            M.Incluir(M);            
+
+            M.Incluir(M);
         }
         private void btnDiretorioMusica_Click(object sender, EventArgs e) //Retorna diretorio da musica
-        {            
-            txtDiretorioMusica.Text = RetornaDiretorio();           
-            string formato = Path.GetExtension(txtDiretorioMusica.Text).Substring(1).ToUpper();           
+        {
+            txtDiretorioMusica.Text = RetornaDiretorio();
+            string formato = Path.GetExtension(txtDiretorioMusica.Text).Substring(1).ToUpper();
             cbFormatoMusica.SelectedIndex = (int)((Musica.EnumFormato)Enum.Parse(typeof(Musica.EnumFormato), formato));
         }
         private void btnConsultarMusica_Click(object sender, EventArgs e) //Chama a lista de Musica
