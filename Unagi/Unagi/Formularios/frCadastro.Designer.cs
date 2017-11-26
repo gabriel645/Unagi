@@ -389,7 +389,6 @@
             // cbFormatoMusica
             // 
             this.cbFormatoMusica.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
-            this.cbFormatoMusica.Enabled = false;
             this.cbFormatoMusica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbFormatoMusica.FormattingEnabled = true;
             this.cbFormatoMusica.Items.AddRange(new object[] {
@@ -1170,7 +1169,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(167)))), ((int)(((byte)(182)))));
-            this.ClientSize = new System.Drawing.Size(660, 499);
+            this.ClientSize = new System.Drawing.Size(653, 499);
             this.Controls.Add(this.btnCadastroMusica);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnConsultarMusica);

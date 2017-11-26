@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frGerenciarPlaylist));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button8 = new System.Windows.Forms.Button();
             this.btnPilha = new System.Windows.Forms.Button();
             this.btnFila = new System.Windows.Forms.Button();
             this.btnLista = new System.Windows.Forms.Button();
@@ -41,7 +42,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.btnAddPlaylist = new System.Windows.Forms.Button();
             this.lbMidias = new System.Windows.Forms.ListBox();
             this.lbPlaylist = new System.Windows.Forms.ListBox();
@@ -62,6 +62,21 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(382, 454);
             this.panel1.TabIndex = 20;
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.Color.Black;
+            this.button8.Location = new System.Drawing.Point(0, 224);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(280, 39);
+            this.button8.TabIndex = 38;
+            this.button8.Text = "NOVA PLAYLIST";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // btnPilha
             // 
@@ -161,6 +176,7 @@
             this.button4.TabIndex = 35;
             this.button4.Text = "MUSICA";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -175,6 +191,7 @@
             this.button3.TabIndex = 34;
             this.button3.Text = "VIDEO";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -189,6 +206,7 @@
             this.button2.TabIndex = 33;
             this.button2.Text = "FOTO";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -203,6 +221,7 @@
             this.button1.TabIndex = 32;
             this.button1.Text = "ALFABÉTICA";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button7
             // 
@@ -218,21 +237,6 @@
             this.button7.Text = "SALVAR PLAYLIST";
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.Black;
-            this.button8.Location = new System.Drawing.Point(0, 224);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(280, 39);
-            this.button8.TabIndex = 38;
-            this.button8.Text = "NOVA PLAYLIST";
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // btnAddPlaylist
             // 
@@ -252,9 +256,6 @@
             // lbMidias
             // 
             this.lbMidias.FormattingEnabled = true;
-            this.lbMidias.Items.AddRange(new object[] {
-            "Teste1 | Caminho1",
-            "Teste2 | Caminho 2"});
             this.lbMidias.Location = new System.Drawing.Point(459, 57);
             this.lbMidias.Name = "lbMidias";
             this.lbMidias.Size = new System.Drawing.Size(303, 316);

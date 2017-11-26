@@ -120,16 +120,16 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnAddPlaylist.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACsAAAAUCAYAAAAUccS4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAExIAABMSAZTZXp0AAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
-        AAABuUlEQVRIS9XWzSsEcRzH8UEUhQOlyNFDcnKRUhxQIge5uHDiH+AuTwdyk5ILbg5yc3CSmxwIKTeS
-        IkVC5Nn7s/w0zc6MndndGp96tWat33zn+3tYVhpThTVUxq4inmp84hUzKERkY4qVd9xgAJmIXOzFyseP
-        QzQgUnEWa6jLKnoW+Uh7slCLJrSiBc0oh4lXscYbLtCBlKcO49jBE9wKkHtsYsr2nhcVrNcVlCCp5ECb
-        4ggaVDvbfjMvKkJT7fY7Nxr3Fj0IlW6cQDc1HUgnrWW9LqMACaUImhb7AH70IJJo1/+isc7QCN/oSLmC
-        VyfVZfMAl9DaXMQCVrGFc5jPhJ0RPbjGmEQ24tKLZ7jdwLx3jGGUwi95aMMDnGMFoYJ3oZPlN32wd835
-        B6doR9BcwzleEGaTPmIQVif8pmseuQiToMXqSDQNu8MGRqGzuBjWHtw6KmNIJn7FqmtmU6pZB5hDPzTt
-        GYhLPZydVfHTSDbOYrUnNLYK1VocgXZ9oJmbgOnuC7bhugsDRsWadadC16G1V4bQ0TeVpsFsshqkIvvQ
-        sdYFnRApi/4xUVeXYlf/IEOo+P4xarGsLzQFNCaGGDx8AAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAACsAAAAUCAYAAAAUccS4AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAT
+        EgAAExIBlNlenQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAG5SURBVEhL1dbN
+        KwRxHMfxQRSFA6XI0UNycpFSHFAiB7m4cOIf4C5PB3KTkgtuDnJzcJKbHAgpN5IiRULk2fuz/DTNzoyd
+        2d0an3q1Zq3ffOf7e1hWGlOFNVTGriKeanziFTMoRGRjipV33GAAmYhc7MXKx49DNCBScRZrqMsqehb5
+        SHuyUIsmtKIFzSiHiVexxhsu0IGUpw7j2MET3AqQe2xiyvaeFxWs1xWUIKnkQJviCBpUO9t+My8qQlPt
+        9js3GvcWPQiVbpxANzUdSCetZb0uowAJpQiaFvsAfvQgkmjX/6KxztAI3+hIuYJXJ9Vl8wCX0NpcxAJW
+        sYVzmM+EnRE9uMaYRDbi0otnuN3AvHeMYZTCL3lowwOcYwWhgnehk+U3fbB3zfkHp2hH0FzDOV4QZpM+
+        YhBWJ/ymax65CJOgxepINA27wwZGobO4GNYe3DoqY0gmfsWqa2ZTqlkHmEM/NO0ZiEs9nJ1V8dNINs5i
+        tSc0tgrVWhyBdn2gmZuA6e4LtuG6CwNGxZp1p0LXobVXhtDRN5WmwWyyGqQi+9Cx1gWdECmL/jFRV5di
+        V/8gQ6j4/jFqsawvNAU0JoYYPHwAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="button9.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

@@ -4,15 +4,17 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using System.Windows.Forms;
+using Unagi.Classes;
+
 namespace Unagi
 {
     namespace Metodos
     {
         public static class Efeitos
-        {            
+        {
             public static void mouseHovering(Button B, bool hovering)
             {
-                
+
                 if (hovering && B.Width < 310)
                     B.Width += 5;
                 else if (!hovering && B.Width > 300)
@@ -43,6 +45,9 @@ namespace Unagi
                             break;
                         case "Video":
                             addVideo(linha);
+                            break;
+                        case "Playlist":
+                            addPlaylist(linha);
                             break;
                     }
                 }
@@ -83,20 +88,32 @@ namespace Unagi
 
                     L.InserirNoFim(obj);
                 }
+                void addPlaylist(string[] P)
+                {
+                    Playlists obj = new Playlists();
+                    obj.nomePlaylist = P[1];
+                    /*foreach (var item in  )
+                    {
+                        int j = 0;
+                        obj.items[j] += "|" ;
+                        j++;
+                    }
+                    L.InserirNoFim(obj);*/
+                }
             }
 
             public static void SalvarMidias(Estrutura.Lista L)
             {
                 if (!File.Exists("Banco.txt"))
                 {
-                    File.Create("Banco.txt").Close();                    
+                    File.Create("Banco.txt").Close();
                 }
 
                 File.WriteAllText("Banco.txt", string.Empty);
 
                 StreamWriter Writer = File.AppendText("Banco.txt");
                 foreach (Midia obj in L)
-                {                                        
+                {
                     Writer.WriteLine(obj.ToString());
                 }
 
@@ -104,7 +121,9 @@ namespace Unagi
 
             }
 
+            
         }
+
 
     }
 
@@ -211,7 +230,7 @@ namespace Unagi
                     InserirNaPosicao(ultimo, valor);
                 }
             }
-          
+
             /// <summary>
             /// Insere em uma posição, iniciando do 0
             /// </summary>
@@ -235,7 +254,7 @@ namespace Unagi
             }
 
 
-            public void  RemoverDaPosicao(int posicao)
+            public void RemoverDaPosicao(int posicao)
             {
                 if (posicao >= qtde || posicao < 0 || qtde == 0)
                     throw new Exception("Não é possível remover.");
@@ -271,12 +290,12 @@ namespace Unagi
 
                 }
             }
-            
+
             /// <summary>
             /// Remove a lista um objeto passado, se existir.
             /// </summary>
             /// <param name="obj"></param>
-            public  void RemoverObjeto(object obj)
+            public void RemoverObjeto(object obj)
             {
                 RemoverDaPosicao(RetornaPosicao(obj));
             }
@@ -298,7 +317,7 @@ namespace Unagi
             {
                 primeiro = null;
             }
-            
+
             #region Static Members
             /// <summary>
             /// Compara a com b e deleta objetos de a que nao estejam em b.
@@ -307,7 +326,7 @@ namespace Unagi
             /// <param name="b"></param>
             public static void comparDel(Lista a, Lista b)
             {
-                foreach(object o in a)
+                foreach (object o in a)
                 {
                     if (!b.Existe(o))
                         a.RemoverObjeto(o);
@@ -321,7 +340,7 @@ namespace Unagi
             /// <param name="b"></param>
             public static void comparaAdd(Lista a, Lista b)
             {
-                foreach(object o in a)
+                foreach (object o in a)
                 {
                     if (!b.Existe(o))
                         b.InserirNoFim(o);
@@ -345,7 +364,7 @@ namespace Unagi
             }
 
 
-            
+
             public Nodo RetornaPrimeiro()
             {
                 return primeiro;
@@ -366,7 +385,7 @@ namespace Unagi
             Nodo nodoAtualParaForEach;
             public void Reset()
             {
-                nodoAtualParaForEach = new Nodo();                
+                nodoAtualParaForEach = new Nodo();
             }
 
             public IEnumerator GetEnumerator()
@@ -381,7 +400,7 @@ namespace Unagi
                     return nodoAtualParaForEach.Dado;
                 }
             }
-#endregion
+            #endregion
 
         }
     }

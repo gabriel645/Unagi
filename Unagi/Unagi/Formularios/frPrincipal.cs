@@ -31,9 +31,9 @@ namespace Unagi.Formularios
         public void Player()
         {
             //axWindowsMediaPlayer1.newPlaylist("foto", @"C:\Users\Sabrina\Downloads\ibagens\13254529_712710388831369_6742972320372427324_n");
-            axWindowsMediaPlayer1.URL = @"C:\Users\Sabrina\Music\Foster the People\Torches\02-Pumped Up Kicks.m4a";
-            axWindowsMediaPlayer1.Ctlcontrols.play();
-            axWindowsMediaPlayer1.Ctlcontrols.stop();
+            axMediaPlayer.URL = @"C:\Users\Sabrina\Music\Foster the People\Torches\02-Pumped Up Kicks.m4a";
+            axMediaPlayer.Ctlcontrols.play();
+            axMediaPlayer.Ctlcontrols.stop();
 
 
         }

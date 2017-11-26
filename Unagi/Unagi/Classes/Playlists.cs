@@ -8,25 +8,12 @@ namespace Unagi.Classes
 {
     public class Playlists
     {
-        private string id;
-        private string caminho;
-        private string nomePlaylist;
-        public string Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
+        public string nomePlaylist;
+        public string[] items;
 
-        public string Caminho
+        public override string ToString()
         {
-            get { return caminho; }
-            set { caminho = value; }
-        }
-
-        public string NomePlaylist
-        {
-            get { return nomePlaylist; }
-            set { nomePlaylist = value; }
+            return "Playlist" + base.ToString();
         }
     }
 }
