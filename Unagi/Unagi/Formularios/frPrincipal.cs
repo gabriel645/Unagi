@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WMPLib;
 using System.IO;
+using Unagi.Classes;
 
 namespace Unagi.Formularios
 {
@@ -18,22 +19,25 @@ namespace Unagi.Formularios
         {
             InitializeComponent();
             Player();
+            lbSelecPlaylist.DisplayMember = "nomePlaylist";
 
-        }
 
-        static void Atualizar()
-        {
-           // if (File.Exists("playlists.txt")) // primeiro verifica se ele existew
-             //   string[] linhas = File.ReadAllLines("C:\\dados.txt"); //tudo lido num vetor (cada linha numa posicao)
-
+            foreach (Midia P in Midia.tMidias)
+            {
+                if (P is Playlists)
+                {
+                    lbSelecPlaylist.Items.Add(P);
+                    lbSelecPlaylist.DisplayMember = "nomePlaylist";
+                }
+            }
         }
 
         public void Player()
         {
             //axWindowsMediaPlayer1.newPlaylist("foto", @"C:\Users\Sabrina\Downloads\ibagens\13254529_712710388831369_6742972320372427324_n");
-            axWindowsMediaPlayer1.URL = @"C:\Users\Sabrina\Music\Foster the People\Torches\02-Pumped Up Kicks.m4a";
-            axWindowsMediaPlayer1.Ctlcontrols.play();
-            axWindowsMediaPlayer1.Ctlcontrols.stop();
+            axMediaPlayer.URL = @"C:\Users\Sabrina\Music\Foster the People\Torches\02-Pumped Up Kicks.m4aC:\Users\Sabrina\Pictures\memes\choro1.jpg";
+            axMediaPlayer.Ctlcontrols.play();
+            axMediaPlayer.Ctlcontrols.stop();
 
 
         }
@@ -76,6 +80,11 @@ namespace Unagi.Formularios
 
         private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
         {
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

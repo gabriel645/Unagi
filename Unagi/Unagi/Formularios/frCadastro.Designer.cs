@@ -393,7 +393,6 @@
             // cbFormatoMusica
             // 
             this.cbFormatoMusica.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
-            this.cbFormatoMusica.Enabled = false;
             this.cbFormatoMusica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbFormatoMusica.FormattingEnabled = true;
             this.cbFormatoMusica.Items.AddRange(new object[] {

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using System.Windows.Forms;
+using Unagi.Classes;
+
 namespace Unagi
 {
     namespace Metodos
@@ -44,6 +46,15 @@ namespace Unagi
                         case "Video":
                             addVideo(linha);
                             break;
+
+                    }
+                }
+                foreach (string s in arquivo)
+                {
+                    string[] linha = s.Split('|');
+                    if (linha[0] == "Playlist")
+                    {
+                        addPlaylist(linha);
                     }
                 }
 
@@ -90,6 +101,23 @@ namespace Unagi
                     Video.ListaVideos.InserirNoFim(obj);
 
                 }
+                void addPlaylist(string[] P)
+                {
+                    Playlists obj = new Playlists();
+                    obj.nomePlaylist = P[1];
+                    for (int i = 2; i < P.Length - 1; i++)
+                    {
+                        foreach (Midia item in Midia.tMidias)
+                        {
+                            if (item.Id.ToString() == P[i])
+                            {
+                                obj.itens.InserirNoFim(item);
+                            }
+                        }
+                    }
+                    L.InserirNoFim(obj);
+
+                }
             }
 
             public static void SalvarMidias(Estrutura.Lista L)
@@ -111,7 +139,9 @@ namespace Unagi
 
             }
 
+
         }
+
 
     }
 

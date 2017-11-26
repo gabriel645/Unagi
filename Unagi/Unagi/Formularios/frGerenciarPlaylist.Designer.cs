@@ -176,6 +176,7 @@
             this.button4.TabIndex = 35;
             this.button4.Text = "MUSICA";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -190,6 +191,7 @@
             this.button3.TabIndex = 34;
             this.button3.Text = "VIDEO";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -204,6 +206,7 @@
             this.button2.TabIndex = 33;
             this.button2.Text = "FOTO";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -218,6 +221,7 @@
             this.button1.TabIndex = 32;
             this.button1.Text = "ALFABÉTICA";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button7
             // 
@@ -252,9 +256,6 @@
             // lbMidias
             // 
             this.lbMidias.FormattingEnabled = true;
-            this.lbMidias.Items.AddRange(new object[] {
-            "Teste1 | Caminho1",
-            "Teste2 | Caminho 2"});
             this.lbMidias.Location = new System.Drawing.Point(459, 57);
             this.lbMidias.Name = "lbMidias";
             this.lbMidias.Size = new System.Drawing.Size(303, 316);

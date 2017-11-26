@@ -58,7 +58,7 @@ namespace Unagi.Formularios
             }
         }
 
-        static string RetornaDiretorio()
+        static string RetornaDiretorio() //Retorna o diretório para o txt e faz uma cópia na pasta Midia do executável
         {
             string fullPath = "";
             OpenFileDialog FD = new OpenFileDialog();
@@ -67,13 +67,14 @@ namespace Unagi.Formularios
                 fullPath = Path.GetFullPath(FD.FileName);
             }
 
-            string fileName = "test";
-            string targetPath = @"\Midias";
+            string fileName = "Midia";
+            string targetPath = @"Midias"; //cria a pasta nova
             string destFile = Path.Combine(targetPath, fileName);
 
-            if (!System.IO.Directory.Exists(targetPath))
+            if (!Directory.Exists("Midias")) //verifica se existe
             {
-                System.IO.Directory.CreateDirectory(targetPath);
+                Directory.CreateDirectory("Midias");
+                //Directory.CreateFolder(targetPath); //cria se não existe
             }
 
             try
@@ -84,6 +85,7 @@ namespace Unagi.Formularios
 
             return fullPath;
         }
+
 
         #region Timer(Animações/Atualiza)
         private Timer timer1;        
@@ -115,10 +117,10 @@ namespace Unagi.Formularios
 
         private bool atualizaLista()
         {
-            foreach (Musica M in Musica.ListaMusicas)                            
-                if (!lBMusicas.Items.Contains(M))                
-                    lBMusicas.Items.Add(M);                
-            
+            foreach (Musica M in Musica.ListaMusicas)
+                if (!lBMusicas.Items.Contains(M))
+                    lBMusicas.Items.Add(M);
+
             foreach (Musica M in lBMusicas.Items)
                 if (!Musica.ListaMusicas.Existe(M))
                 {
@@ -227,10 +229,12 @@ namespace Unagi.Formularios
             Musica M = new Musica();
             M.Id = Convert.ToInt32(txtIdMusica.Text);
             M.Descricao = txtDescMusica.Text;
-            M.ArquivoMidia = txtDiretorioMusica.Text;
             M.Volume = Convert.ToInt32(txtVolumeMusica.Text);
             M.Duracao = Convert.ToDouble(txtDuracaoMusica.Text);
             M.Formato = cbFormatoMusica.SelectedItem.ToString();
+            M.ArquivoMidia = txtDiretorioMusica.Text;
+
+
             M.Incluir(M);
         }
         private void btnDiretorioMusica_Click(object sender, EventArgs e) //Retorna diretorio da musica
@@ -240,7 +244,7 @@ namespace Unagi.Formularios
             cbFormatoMusica.SelectedIndex = (int)((Musica.EnumFormato)Enum.Parse(typeof(Musica.EnumFormato), formato));
         }
         private void btnConsultarMusica_Click(object sender, EventArgs e) //Chama a lista de Musica
-        {            
+        {
             Musica M = (Musica)lBMusicas.SelectedItem;
 
         }

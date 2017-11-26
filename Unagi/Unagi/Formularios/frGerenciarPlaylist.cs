@@ -8,9 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unagi.Estrutura;
-using Unagi.Classes;
 using Unagi.Metodos;
 using System.IO;
+using Unagi.Classes;
+
 
 namespace Unagi
 {
@@ -24,6 +25,19 @@ namespace Unagi
             InitializeComponent();
             originalWidth = this.Width;
             originalHeight = this.Height;
+            CarregalbMidia();
+            button6.Enabled = false;
+
+        }
+
+        public void CarregalbMidia()
+        {
+            foreach (Midia M in Midia.tMidias)
+            {
+                lbMidias.Items.Add(M);
+                lbMidias.DisplayMember = "Descricao";
+            }
+
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -49,7 +63,8 @@ namespace Unagi
 
         private void btnAddPlaylist_Click(object sender, EventArgs e)
         {
-            lbPlaylist.Items.Add(lbMidias.SelectedItem.ToString());
+            lbPlaylist.DisplayMember = "Descricao";
+            lbPlaylist.Items.Add(lbMidias.SelectedItem);
         }
 
         private void lbPlaylist_SelectedIndexChanged(object sender, EventArgs e)
@@ -59,30 +74,56 @@ namespace Unagi
 
         private void button7_Click(object sender, EventArgs e)
         {
-            Playlists novaPlaylist = new Playlists();
-            novaPlaylist.NomePlaylist = txtNomePlaylist.Text;
+            Playlists P = new Playlists();
+            P.nomePlaylist = txtNomePlaylist.Text;
+            //string[] auxiliar = new string[lbPlaylist.Items.Count];
 
-           /* string[] auxiliar;
-            //Environment.NewLine + txtNomePlaylist.Text + "|" + lbPlaylist.Items;
-            
-            for (int i = 0; i < 5 i++)
+            foreach (Midia item in lbPlaylist.Items) // e tentei assim tb
             {
-                lbPlaylist.Items.CopyTo(auxiliar, i);
+                P.itens.InserirNoFim(item); 
             }
 
-            if ((!File.Exists("playlists.txt")))
-            {
-                File.Create("playlists.txt");
-                File.AppendAllText("playlists.txt", auxiliar);
-            }
-            else
-                File.AppendAllText("playlists.txt", auxiliar);
-           */
+            P.Incluir(P);
+            Midia.tMidias.InserirNoFim(P);
+            Arquivo.SalvarMidias(Midia.tMidias);
+
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
             lbPlaylist.Items.Remove(lbPlaylist.SelectedItem);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            foreach (Foto F in Midia.tMidias)
+            {
+                lbMidias.Items.Add(F);
+                lbMidias.DisplayMember = "Descricao";
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            foreach (Video V in Midia.tMidias)
+            {
+                lbMidias.Items.Add(V);
+                lbMidias.DisplayMember = "Descricao";
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            foreach (Musica M in Midia.tMidias)
+            {
+                lbMidias.Items.Add(M);
+                lbMidias.DisplayMember = "Descricao";
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            lbMidias.Sorted = true;
         }
     }
 }
