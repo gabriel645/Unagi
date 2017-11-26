@@ -433,12 +433,12 @@ namespace Unagi
         /// </summary>
         class NodoPilha
         {
-            private string valor;
+            private object valor;
             private NodoPilha anterior;
             /// <summary>
             /// Valor que será armazenado
             /// </summary>
-            public string Valor
+            public object Valor
             {
                 get { return valor; }
                 set { valor = value; }
@@ -469,7 +469,7 @@ namespace Unagi
             /// Método para empilhar strings
             /// </summary>
             /// <param name="valor"></param>
-            public void Empilhar(string valor)
+            public void Empilhar(object valor)
             {
                 NodoPilha novoNodoPilha = new NodoPilha();
                 novoNodoPilha.Valor = valor;
@@ -482,13 +482,13 @@ namespace Unagi
             /// Desempilhar elementos da pilha
             /// </summary>
             /// <returns></returns>
-            public string Desempilhar()
+            public object Desempilhar()
             {
                 if (quantidade == 0)
                     throw new Exception("A pilha está vazia!");
                 else
                 {
-                    string retorno = topo.Valor;
+                    object retorno = topo.Valor;
                     topo = topo.Anterior;
                     quantidade--;
                     return retorno;
@@ -498,7 +498,7 @@ namespace Unagi
             /// Método para retornar o topo da pilha
             /// </summary>
             /// <returns></returns>
-            public string RetornaTopo()
+            public object RetornaTopo()
             {
                 if (quantidade == 0)
                     throw new Exception("A pilha está vazia!");
@@ -511,49 +511,97 @@ namespace Unagi
 
         namespace Estrutura
         {
+            class NodoFila
+            {
+                private object valor;
+                private NodoFila posterior;
+                /// <summary>
+                /// Valor que será armazenado
+                /// </summary>
+                public object Valor
+                {
+                    get { return valor; }
+                    set { valor = value; }
+                }
+                /// <summary>
+                /// Endereço do NodoPilha anterior na pilha
+                /// </summary>
+                public NodoFila Posterior
+                {
+                    get { return posterior; }
+                    set { posterior = value; }
+                }
+            }
+            /// <summary>
+            /// Classe Pilha Dinâmica
+            /// </summary>
             class Fila
             {
-                public Fila(int capacidade)
+                //Representa o topo da pilha
+                private NodoFila primeiro = null;
+                // quantidade de elementos na pilha
+                int quantidade = 0;
+                public int Quantidade
                 {
-                    CAPACIDADE = capacidade;
+                    get { return quantidade; }
                 }
-                int CAPACIDADE = 5; // capacidade máxima da fila
-                private int quantidade = 0; // qtde de elementos enfileirados
-                private int inicio = 0; // indica qual a primeira posição da fila
-                private int fim = 0; // indica a próxima posição
-                private string[] dados = new string[CAPACIDADE]; // armazenar os dados da fila
-                                                                 // retorna o tamanho da fila
-                public int Tamanho()
+                /// <summary>
+                /// Método para empilhar strings
+                /// </summary>
+                /// <param name="valor"></param>
+                public void Emfileirar(object valor)
                 {
-                    return quantidade;
-                }
-                // enfileira um valor string
-                public void Enfileirar(string p_valor)
-                {
-                    if (Tamanho() == CAPACIDADE)
-                    {
-                        throw new Exception("A fila está cheia!!!!");
-                    }
+                    NodoFila aux = new NodoFila();
+                    NodoFila novoNodoFila = new NodoFila();
+
+                    novoNodoFila.Valor = valor;
+                    if (quantidade == 0)
+                        primeiro = novoNodoFila;
                     else
                     {
-                        dados[fim] = p_valor;
-                        fim = (fim + 1) % CAPACIDADE;
-                        quantidade++;
+                        aux = primeiro;
+                        for (int i = 0; i < quantidade; i++)
+                        {
+                            if (aux.Posterior == null)
+                            {
+                                aux.Posterior = novoNodoFila;
+                                quantidade++;
+                                return;
+                            }
+                            aux = aux.Posterior;
+                        }
+                        
                     }
+                    quantidade++;
                 }
-                // remove o primeiro elemento da fila e devolve.
-                public string Desenfileira()
+
+                /// <summary>
+                /// Desempilhar elementos da pilha
+                /// </summary>
+                /// <returns></returns>
+                public object Desemfilerar()
                 {
-                    if (Tamanho() == 0)
-                    {
+                    if (quantidade == 0)
                         throw new Exception("A fila está vazia!");
-                    }
                     else
                     {
-                        string valor = dados[inicio];
-                        inicio = (inicio + 1) % CAPACIDADE;
+                        object retorno = primeiro.Valor;
+                        primeiro = primeiro.Posterior;
                         quantidade--;
-                        return valor;
+                        return retorno;
+                    }
+                }
+                /// <summary>
+                /// Método para retornar o topo da pilha
+                /// </summary>
+                /// <returns></returns>
+                public object RetornaPrimeiro()
+                {
+                    if (quantidade == 0)
+                        throw new Exception("A pilha está vazia!");
+                    else
+                    {
+                        return primeiro.Valor;
                     }
                 }
             }
