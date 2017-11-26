@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WMPLib;
 
 namespace Unagi.Formularios
 {
@@ -15,6 +16,17 @@ namespace Unagi.Formularios
         public frPrincipal()
         {
             InitializeComponent();
+            Player();
+        }
+
+        public void Player()
+        {
+            //axWindowsMediaPlayer1.newPlaylist("foto", @"C:\Users\Sabrina\Downloads\ibagens\13254529_712710388831369_6742972320372427324_n");
+            axWindowsMediaPlayer1.URL = @"C:\Users\Sabrina\Music\Foster the People\Torches\02-Pumped Up Kicks.m4a";
+            axWindowsMediaPlayer1.Ctlcontrols.play();
+            axWindowsMediaPlayer1.Ctlcontrols.stop();
+
+
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -51,6 +63,10 @@ namespace Unagi.Formularios
         private void panelMenu_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
+        {
         }
     }
 }

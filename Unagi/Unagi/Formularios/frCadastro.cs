@@ -55,6 +55,7 @@ namespace Unagi.Formularios
                 cbFormatoMusica.Items.Add(item);
             }
         }
+
         static string RetornaDiretorio()
         {
             string fullPath = "";
@@ -63,8 +64,21 @@ namespace Unagi.Formularios
             {
                 fullPath = Path.GetFullPath(FD.FileName);
             }
+
+            string fileName = "test";
+            string targetPath = @"\Midias";
+            string destFile = Path.Combine(targetPath, fileName);
+
+            if (!System.IO.Directory.Exists(targetPath))
+            {
+                System.IO.Directory.CreateDirectory(targetPath);
+            }
+
+            System.IO.File.Copy(fullPath, destFile, true);
+
             return fullPath;
         }
+
         #region Timer(Animações/Atualiza)
         private Timer timer1;
 
