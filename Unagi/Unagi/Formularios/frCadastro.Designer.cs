@@ -109,6 +109,7 @@
             this.btnCadastroAlbum = new System.Windows.Forms.Button();
             this.btnCadastroFoto = new System.Windows.Forms.Button();
             this.bntCadastroVideo = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panelVideo.SuspendLayout();
             this.panelMusica.SuspendLayout();
             this.panelAlbum.SuspendLayout();
@@ -1157,6 +1158,13 @@
             this.bntCadastroVideo.MouseEnter += new System.EventHandler(this.bntCadastroVideo_MouseEnter);
             this.bntCadastroVideo.MouseLeave += new System.EventHandler(this.bntCadastroVideo_MouseLeave);
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(0, 0);
+            this.panel1.TabIndex = 42;
+            // 
             // frCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1273,5 +1281,6 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.ListBox lBFoto;
         private System.Windows.Forms.ListBox lBMusicas;
+        private System.Windows.Forms.Panel panel1;
     }
 }

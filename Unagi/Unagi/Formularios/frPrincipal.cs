@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WMPLib;
+using System.IO;
 
 namespace Unagi.Formularios
 {
@@ -17,6 +18,14 @@ namespace Unagi.Formularios
         {
             InitializeComponent();
             Player();
+
+        }
+
+        static void Atualizar()
+        {
+           // if (File.Exists("playlists.txt")) // primeiro verifica se ele existew
+             //   string[] linhas = File.ReadAllLines("C:\\dados.txt"); //tudo lido num vetor (cada linha numa posicao)
+
         }
 
         public void Player()

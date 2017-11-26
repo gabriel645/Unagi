@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\AlbumMusical.cs" />
+    <Compile Include="Classes\Playlists.cs" />
     <Compile Include="Estruturas_Validacoes\Est-Val-Met.cs" />
     <Compile Include="Classes\Midia.cs" />
     <Compile Include="Classes\Musica.cs" />

@@ -38,9 +38,9 @@
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.lbel1 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lbNomesPlaylists = new System.Windows.Forms.ListBox();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
@@ -155,17 +155,10 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(934, 68);
+            this.panel1.Location = new System.Drawing.Point(952, 68);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(268, 127);
+            this.panel1.Size = new System.Drawing.Size(250, 127);
             this.panel1.TabIndex = 34;
-            // 
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(952, 240);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(239, 124);
-            this.panel2.TabIndex = 35;
             // 
             // lbel1
             // 
@@ -187,6 +180,14 @@
             this.label1.TabIndex = 35;
             this.label1.Text = "Playlists";
             // 
+            // lbNomesPlaylists
+            // 
+            this.lbNomesPlaylists.FormattingEnabled = true;
+            this.lbNomesPlaylists.Location = new System.Drawing.Point(952, 240);
+            this.lbNomesPlaylists.Name = "lbNomesPlaylists";
+            this.lbNomesPlaylists.Size = new System.Drawing.Size(250, 134);
+            this.lbNomesPlaylists.TabIndex = 36;
+            // 
             // frPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -195,7 +196,6 @@
             this.ClientSize = new System.Drawing.Size(1250, 500);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.lbel1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelMenu);
@@ -226,8 +226,8 @@
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lbel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox lbNomesPlaylists;
     }
 }
