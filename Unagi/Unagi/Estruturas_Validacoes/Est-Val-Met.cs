@@ -211,6 +211,7 @@ namespace Unagi
                     InserirNaPosicao(ultimo, valor);
                 }
             }
+          
             /// <summary>
             /// Insere em uma posição, iniciando do 0
             /// </summary>
@@ -234,19 +235,18 @@ namespace Unagi
             }
 
 
-            public object RemoverDaPosicao(int posicao)
+            public void  RemoverDaPosicao(int posicao)
             {
                 if (posicao >= qtde || posicao < 0 || qtde == 0)
                     throw new Exception("Não é possível remover.");
 
-                object valor = "";
+                object valor;
                 qtde--;
 
                 if (qtde == 0)
                 {
                     valor = primeiro.Dado;
                     primeiro = ultimo = null;
-                    return valor;
                 }
                 else
                 {
@@ -269,10 +269,17 @@ namespace Unagi
                     if (nodoApagado.Proximo != null)
                         nodoApagado.Proximo.Anterior = nodoApagado.Anterior;
 
-                    return valor;
                 }
             }
-
+            
+            /// <summary>
+            /// Remove a lista um objeto passado, se existir.
+            /// </summary>
+            /// <param name="obj"></param>
+            public  void RemoverObjeto(object obj)
+            {
+                RemoverDaPosicao(RetornaPosicao(obj));
+            }
 
             public bool Existe(object dado)
             {
@@ -291,7 +298,36 @@ namespace Unagi
             {
                 primeiro = null;
             }
+            
+            #region Static Members
+            /// <summary>
+            /// Compara a com b e deleta objetos de a que nao estejam em b.
+            /// </summary>
+            /// <param name="a"></param>
+            /// <param name="b"></param>
+            public static void comparDel(Lista a, Lista b)
+            {
+                foreach(object o in a)
+                {
+                    if (!b.Existe(o))
+                        a.RemoverObjeto(o);
+                }
+            }
 
+            /// <summary>
+            /// Compara a com b e adciona (em b) objetos de a que nao estejam em b.
+            /// </summary>
+            /// <param name="a"></param>
+            /// <param name="b"></param>
+            public static void comparaAdd(Lista a, Lista b)
+            {
+                foreach(object o in a)
+                {
+                    if (!b.Existe(o))
+                        b.InserirNoFim(o);
+                }
+            }
+            #endregion
 
             public int RetornaPosicao(object dado)
             {
@@ -307,16 +343,16 @@ namespace Unagi
                 pos = -1;
                 return pos;
             }
-                    
 
 
+            
             public Nodo RetornaPrimeiro()
             {
                 return primeiro;
             }
 
-            
 
+            #region So Foreach can work
             public bool MoveNext()
             {
                 if (nodoAtualParaForEach == null)
@@ -345,8 +381,8 @@ namespace Unagi
                     return nodoAtualParaForEach.Dado;
                 }
             }
+#endregion
 
-            
         }
     }
 

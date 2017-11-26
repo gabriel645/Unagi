@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Unagi.Estrutura;
 
 namespace Unagi
 {
     class Video : Midia, ILocal, ICatalogo
     {
+
+        public static Lista ListaMVideos = new Lista();
         public enum EnumIdioma
         {
             portugues,

@@ -396,7 +396,7 @@
             "WAV",
             "WMA",
             "M4A"});
-            this.cbFormatoMusica.Location = new System.Drawing.Point(104, 292);
+            this.cbFormatoMusica.Location = new System.Drawing.Point(347, 249);
             this.cbFormatoMusica.Name = "cbFormatoMusica";
             this.cbFormatoMusica.Size = new System.Drawing.Size(121, 21);
             this.cbFormatoMusica.TabIndex = 10;
@@ -406,7 +406,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(31, 89);
+            this.label1.Location = new System.Drawing.Point(541, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(27, 19);
             this.label1.TabIndex = 0;
@@ -418,17 +418,17 @@
             this.txtIdMusica.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIdMusica.Font = new System.Drawing.Font("Gadugi", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdMusica.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtIdMusica.Location = new System.Drawing.Point(61, 87);
+            this.txtIdMusica.Location = new System.Drawing.Point(571, 44);
             this.txtIdMusica.Name = "txtIdMusica";
             this.txtIdMusica.Size = new System.Drawing.Size(204, 22);
-            this.txtIdMusica.TabIndex = 1;
+            this.txtIdMusica.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(31, 207);
+            this.label2.Location = new System.Drawing.Point(274, 164);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(136, 19);
             this.label2.TabIndex = 2;
@@ -439,7 +439,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(31, 137);
+            this.label3.Location = new System.Drawing.Point(274, 94);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 19);
             this.label3.TabIndex = 3;
@@ -450,7 +450,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(29, 292);
+            this.label4.Location = new System.Drawing.Point(272, 249);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 19);
             this.label4.TabIndex = 4;
@@ -461,7 +461,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(249, 293);
+            this.label6.Location = new System.Drawing.Point(492, 250);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(66, 19);
             this.label6.TabIndex = 8;
@@ -472,7 +472,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(376, 294);
+            this.label7.Location = new System.Drawing.Point(666, 251);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(70, 19);
             this.label7.TabIndex = 9;
@@ -483,11 +483,11 @@
             this.txtDuracaoMusica.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
             this.txtDuracaoMusica.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDuracaoMusica.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtDuracaoMusica.Location = new System.Drawing.Point(447, 294);
+            this.txtDuracaoMusica.Location = new System.Drawing.Point(737, 251);
             this.txtDuracaoMusica.Mask = "99,99";
             this.txtDuracaoMusica.Name = "txtDuracaoMusica";
             this.txtDuracaoMusica.Size = new System.Drawing.Size(38, 20);
-            this.txtDuracaoMusica.TabIndex = 12;
+            this.txtDuracaoMusica.TabIndex = 4;
             // 
             // btnDiretorioMusica
             // 
@@ -496,10 +496,10 @@
             this.btnDiretorioMusica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDiretorioMusica.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDiretorioMusica.ForeColor = System.Drawing.Color.Black;
-            this.btnDiretorioMusica.Location = new System.Drawing.Point(435, 230);
+            this.btnDiretorioMusica.Location = new System.Drawing.Point(678, 187);
             this.btnDiretorioMusica.Name = "btnDiretorioMusica";
             this.btnDiretorioMusica.Size = new System.Drawing.Size(97, 23);
-            this.btnDiretorioMusica.TabIndex = 11;
+            this.btnDiretorioMusica.TabIndex = 2;
             this.btnDiretorioMusica.Text = "SELECIONAR";
             this.btnDiretorioMusica.UseVisualStyleBackColor = false;
             this.btnDiretorioMusica.Click += new System.EventHandler(this.btnDiretorioMusica_Click);
@@ -510,10 +510,10 @@
             this.txtDescMusica.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDescMusica.Font = new System.Drawing.Font("Gadugi", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescMusica.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtDescMusica.Location = new System.Drawing.Point(31, 159);
+            this.txtDescMusica.Location = new System.Drawing.Point(274, 116);
             this.txtDescMusica.Name = "txtDescMusica";
             this.txtDescMusica.Size = new System.Drawing.Size(501, 22);
-            this.txtDescMusica.TabIndex = 13;
+            this.txtDescMusica.TabIndex = 1;
             // 
             // txtDiretorioMusica
             // 
@@ -521,10 +521,10 @@
             this.txtDiretorioMusica.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDiretorioMusica.Font = new System.Drawing.Font("Gadugi", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiretorioMusica.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtDiretorioMusica.Location = new System.Drawing.Point(31, 231);
+            this.txtDiretorioMusica.Location = new System.Drawing.Point(274, 188);
             this.txtDiretorioMusica.Name = "txtDiretorioMusica";
             this.txtDiretorioMusica.Size = new System.Drawing.Size(398, 22);
-            this.txtDiretorioMusica.TabIndex = 14;
+            this.txtDiretorioMusica.TabIndex = 2;
             // 
             // btnSalvarMusica
             // 
@@ -533,10 +533,10 @@
             this.btnSalvarMusica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvarMusica.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalvarMusica.ForeColor = System.Drawing.Color.Black;
-            this.btnSalvarMusica.Location = new System.Drawing.Point(391, 396);
+            this.btnSalvarMusica.Location = new System.Drawing.Point(0, 305);
             this.btnSalvarMusica.Name = "btnSalvarMusica";
-            this.btnSalvarMusica.Size = new System.Drawing.Size(159, 31);
-            this.btnSalvarMusica.TabIndex = 11;
+            this.btnSalvarMusica.Size = new System.Drawing.Size(64, 31);
+            this.btnSalvarMusica.TabIndex = 5;
             this.btnSalvarMusica.Text = "ADICIONAR";
             this.btnSalvarMusica.UseVisualStyleBackColor = false;
             this.btnSalvarMusica.Click += new System.EventHandler(this.btnSalvarMusica_Click);
@@ -547,10 +547,10 @@
             this.txtVolumeMusica.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtVolumeMusica.Font = new System.Drawing.Font("Gadugi", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtVolumeMusica.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtVolumeMusica.Location = new System.Drawing.Point(316, 292);
+            this.txtVolumeMusica.Location = new System.Drawing.Point(559, 249);
             this.txtVolumeMusica.Name = "txtVolumeMusica";
             this.txtVolumeMusica.Size = new System.Drawing.Size(44, 22);
-            this.txtVolumeMusica.TabIndex = 15;
+            this.txtVolumeMusica.TabIndex = 3;
             // 
             // btnConsultarMusica
             // 
@@ -559,10 +559,10 @@
             this.btnConsultarMusica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultarMusica.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultarMusica.ForeColor = System.Drawing.Color.Black;
-            this.btnConsultarMusica.Location = new System.Drawing.Point(64, 396);
+            this.btnConsultarMusica.Location = new System.Drawing.Point(213, 305);
             this.btnConsultarMusica.Name = "btnConsultarMusica";
-            this.btnConsultarMusica.Size = new System.Drawing.Size(159, 31);
-            this.btnConsultarMusica.TabIndex = 16;
+            this.btnConsultarMusica.Size = new System.Drawing.Size(86, 31);
+            this.btnConsultarMusica.TabIndex = 7;
             this.btnConsultarMusica.TabStop = false;
             this.btnConsultarMusica.Text = "ALTERAR";
             this.btnConsultarMusica.UseVisualStyleBackColor = false;
@@ -572,9 +572,6 @@
             // 
             this.panelMusica.Controls.Add(this.lBMusicas);
             this.panelMusica.Controls.Add(this.lbel1);
-            this.panelMusica.Controls.Add(this.btnExcluirMusica);
-            this.panelMusica.Controls.Add(this.btnConsultarMusica);
-            this.panelMusica.Controls.Add(this.btnSalvarMusica);
             this.panelMusica.Controls.Add(this.txtVolumeMusica);
             this.panelMusica.Controls.Add(this.txtDiretorioMusica);
             this.panelMusica.Controls.Add(this.txtDescMusica);
@@ -590,7 +587,7 @@
             this.panelMusica.Controls.Add(this.cbFormatoMusica);
             this.panelMusica.Location = new System.Drawing.Point(390, 1);
             this.panelMusica.Name = "panelMusica";
-            this.panelMusica.Size = new System.Drawing.Size(839, 453);
+            this.panelMusica.Size = new System.Drawing.Size(859, 500);
             this.panelMusica.TabIndex = 6;
             this.panelMusica.Visible = false;
             // 
@@ -599,9 +596,9 @@
             this.lBMusicas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(167)))), ((int)(((byte)(182)))));
             this.lBMusicas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lBMusicas.FormattingEnabled = true;
-            this.lBMusicas.Location = new System.Drawing.Point(556, 87);
+            this.lBMusicas.Location = new System.Drawing.Point(15, 49);
             this.lBMusicas.Name = "lBMusicas";
-            this.lBMusicas.Size = new System.Drawing.Size(257, 338);
+            this.lBMusicas.Size = new System.Drawing.Size(235, 429);
             this.lBMusicas.TabIndex = 0;
             this.lBMusicas.SelectedIndexChanged += new System.EventHandler(this.lBMusicas_SelectedIndexChanged);
             // 
@@ -609,7 +606,7 @@
             // 
             this.lbel1.AutoSize = true;
             this.lbel1.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lbel1.Location = new System.Drawing.Point(558, 59);
+            this.lbel1.Location = new System.Drawing.Point(58, 12);
             this.lbel1.Name = "lbel1";
             this.lbel1.Size = new System.Drawing.Size(140, 23);
             this.lbel1.TabIndex = 36;
@@ -622,13 +619,14 @@
             this.btnExcluirMusica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcluirMusica.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcluirMusica.ForeColor = System.Drawing.Color.Black;
-            this.btnExcluirMusica.Location = new System.Drawing.Point(227, 396);
+            this.btnExcluirMusica.Location = new System.Drawing.Point(108, 305);
             this.btnExcluirMusica.Name = "btnExcluirMusica";
-            this.btnExcluirMusica.Size = new System.Drawing.Size(159, 31);
-            this.btnExcluirMusica.TabIndex = 17;
+            this.btnExcluirMusica.Size = new System.Drawing.Size(63, 31);
+            this.btnExcluirMusica.TabIndex = 6;
             this.btnExcluirMusica.TabStop = false;
             this.btnExcluirMusica.Text = "EXCLUIR";
             this.btnExcluirMusica.UseVisualStyleBackColor = false;
+            this.btnExcluirMusica.Click += new System.EventHandler(this.btnExcluirMusica_Click);
             // 
             // panelAlbum
             // 
@@ -1083,7 +1081,7 @@
             this.btnCadastroMusica.Location = new System.Drawing.Point(0, 45);
             this.btnCadastroMusica.Name = "btnCadastroMusica";
             this.btnCadastroMusica.Size = new System.Drawing.Size(299, 39);
-            this.btnCadastroMusica.TabIndex = 37;
+            this.btnCadastroMusica.TabIndex = 0;
             this.btnCadastroMusica.Text = "MÚSICA";
             this.btnCadastroMusica.UseVisualStyleBackColor = false;
             this.btnCadastroMusica.Click += new System.EventHandler(this.btnCadastroMusica_Click_1);
@@ -1098,10 +1096,10 @@
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltar.ForeColor = System.Drawing.Color.Black;
-            this.btnVoltar.Location = new System.Drawing.Point(0, 378);
+            this.btnVoltar.Location = new System.Drawing.Point(0, 440);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(299, 39);
-            this.btnVoltar.TabIndex = 41;
+            this.btnVoltar.TabIndex = 4;
             this.btnVoltar.Text = "VOLTAR";
             this.btnVoltar.UseVisualStyleBackColor = false;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click_1);
@@ -1117,7 +1115,7 @@
             this.btnCadastroAlbum.Location = new System.Drawing.Point(0, 99);
             this.btnCadastroAlbum.Name = "btnCadastroAlbum";
             this.btnCadastroAlbum.Size = new System.Drawing.Size(299, 39);
-            this.btnCadastroAlbum.TabIndex = 38;
+            this.btnCadastroAlbum.TabIndex = 1;
             this.btnCadastroAlbum.Text = "ÁLBUM";
             this.btnCadastroAlbum.UseVisualStyleBackColor = false;
             this.btnCadastroAlbum.Click += new System.EventHandler(this.btnCadastroAlbum_Click_1);
@@ -1135,7 +1133,7 @@
             this.btnCadastroFoto.Location = new System.Drawing.Point(0, 207);
             this.btnCadastroFoto.Name = "btnCadastroFoto";
             this.btnCadastroFoto.Size = new System.Drawing.Size(299, 39);
-            this.btnCadastroFoto.TabIndex = 40;
+            this.btnCadastroFoto.TabIndex = 3;
             this.btnCadastroFoto.Text = "FOTO";
             this.btnCadastroFoto.UseVisualStyleBackColor = false;
             this.btnCadastroFoto.Click += new System.EventHandler(this.btnCadastroFoto_Click_1);
@@ -1152,7 +1150,7 @@
             this.bntCadastroVideo.Location = new System.Drawing.Point(0, 154);
             this.bntCadastroVideo.Name = "bntCadastroVideo";
             this.bntCadastroVideo.Size = new System.Drawing.Size(299, 39);
-            this.bntCadastroVideo.TabIndex = 39;
+            this.bntCadastroVideo.TabIndex = 2;
             this.bntCadastroVideo.Text = "VÍDEO";
             this.bntCadastroVideo.UseVisualStyleBackColor = false;
             this.bntCadastroVideo.Click += new System.EventHandler(this.bntCadastroVideo_Click_1);
@@ -1164,11 +1162,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(167)))), ((int)(((byte)(182)))));
-            this.ClientSize = new System.Drawing.Size(1028, 455);
+            this.ClientSize = new System.Drawing.Size(660, 499);
             this.Controls.Add(this.btnCadastroMusica);
             this.Controls.Add(this.btnVoltar);
+            this.Controls.Add(this.btnConsultarMusica);
+            this.Controls.Add(this.btnExcluirMusica);
             this.Controls.Add(this.btnCadastroAlbum);
             this.Controls.Add(this.bntCadastroVideo);
+            this.Controls.Add(this.btnSalvarMusica);
             this.Controls.Add(this.btnCadastroFoto);
             this.Controls.Add(this.panelMusica);
             this.Controls.Add(this.txtAnoFoto);

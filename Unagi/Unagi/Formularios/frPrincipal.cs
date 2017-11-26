@@ -19,7 +19,7 @@ namespace Unagi.Formularios
 
         private void button6_Click(object sender, EventArgs e)
         {
-            Environment.Exit(0);
+            this.Close();
         }
 
         private void btnCadastro_Click(object sender, EventArgs e)

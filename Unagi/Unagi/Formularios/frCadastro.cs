@@ -32,6 +32,10 @@ namespace Unagi.Formularios
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             this.timer1.Interval = 1;
+
+
+
+
         }
 
         void CarregaEnums()
@@ -64,6 +68,8 @@ namespace Unagi.Formularios
         #region Timer(Animações/Atualiza)
         private Timer timer1;
 
+        bool CLOSE = false;
+
         private bool telaAumenta = false;
         private bool telaDiminui = false;
         private Button B = new Button();
@@ -72,10 +78,10 @@ namespace Unagi.Formularios
         {
             #region Animações
             if (telaAumenta)
-                if (this.Width < 1214)
+                if (this.Width < 1250)
                     this.Width += 50;
             if (telaDiminui)
-                if (this.Width > 391)
+                if (this.Width > 389)
                     this.Width -= 50;
 
             Efeitos.mouseHovering(B, btnDeforma);
@@ -83,26 +89,32 @@ namespace Unagi.Formularios
 
             #region Atualização
             atualizaLista();
-            #endregion 
+            #endregion           
+
 
         }
         #endregion
 
-        private void atualizaLista()
-        {            
-            foreach (Musica M in Musica.ListaMusicas)
-            {
-                if(!lBMusicas.Items.Contains(M))
+        private bool atualizaLista()
+        {
+            foreach (Musica M in Musica.ListaMusicas)                            
+                if (!lBMusicas.Items.Contains(M))                
+                    lBMusicas.Items.Add(M);                
+            
+            foreach (Musica M in lBMusicas.Items)
+                if (!Musica.ListaMusicas.Existe(M))
                 {
-                    lBMusicas.Items.Add(M);                    
+                    lBMusicas.Items.Remove(M);
+                    break;
                 }
-            }           
+            return true;
         }
 
         #region Configurações da Tela       
 
         private void btnCadastroMusica_Click_1(object sender, EventArgs e)
         {
+
             //this.Width = 1214;            
             if (telaAumenta)
             { telaAumenta = false; telaDiminui = true; }
@@ -113,6 +125,7 @@ namespace Unagi.Formularios
             panelAlbum.Visible = false;
             panelVideo.Visible = false;
             txtAnoFoto.Visible = false;
+
         }
 
         private void btnCadastroAlbum_Click_1(object sender, EventArgs e)
@@ -154,17 +167,16 @@ namespace Unagi.Formularios
         private void btnVoltar_Click_1(object sender, EventArgs e)
         {
             //SALVAR AS OUTRAS MIDIAS TAMBÉM            
-            Midia.tMidias.Clear();
-            foreach (Midia M in Musica.ListaMusicas)                
-                    Midia.tMidias.InserirNoFim(M);
+            Lista.comparDel(Midia.tMidias, Musica.ListaMusicas);
+            Lista.comparaAdd(Musica.ListaMusicas, Midia.tMidias);
             Arquivo.SalvarMidias(Musica.tMidias);
-            Close();
+            this.Close();
+
         }
 
         #endregion
 
         #region Cadastrando Música
-        //Lista listaParalelaMusicas = new Lista();
         private void btnSalvarMusica_Click(object sender, EventArgs e)
         {
             Musica M = new Musica();
@@ -174,21 +186,18 @@ namespace Unagi.Formularios
             M.Volume = Convert.ToInt32(txtVolumeMusica.Text);
             M.Duracao = Convert.ToDouble(txtDuracaoMusica.Text);
             M.Formato = cbFormatoMusica.SelectedItem.ToString();
-            M.Incluir(M);            
+            M.Incluir(M);
         }
         private void btnDiretorioMusica_Click(object sender, EventArgs e) //Retorna diretorio da musica
-        {            
-            txtDiretorioMusica.Text = RetornaDiretorio();           
-            string formato = Path.GetExtension(txtDiretorioMusica.Text).Substring(1).ToUpper();           
+        {
+            txtDiretorioMusica.Text = RetornaDiretorio();
+            string formato = Path.GetExtension(txtDiretorioMusica.Text).Substring(1).ToUpper();
             cbFormatoMusica.SelectedIndex = (int)((Musica.EnumFormato)Enum.Parse(typeof(Musica.EnumFormato), formato));
         }
         private void btnConsultarMusica_Click(object sender, EventArgs e) //Chama a lista de Musica
-        {
-            /*frLista telaLista = new frLista(Musica.ListaMusicas);
-            telaLista.Location = new Point(321, 223);
-            telaLista.Show();*/
-            //seleciona a musica > clica > carrega os dados
+        {            
             Musica M = (Musica)lBMusicas.SelectedItem;
+
         }
         #endregion
 
@@ -346,5 +355,10 @@ namespace Unagi.Formularios
         }
 
         #endregion
+
+        private void btnExcluirMusica_Click(object sender, EventArgs e)
+        {
+            Musica.ListaMusicas.RemoverObjeto(lBMusicas.SelectedItem);
+        }
     }
 }
