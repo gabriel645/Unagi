@@ -157,10 +157,11 @@
             // lBVideo
             // 
             this.lBVideo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(167)))), ((int)(((byte)(182)))));
+            this.lBVideo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lBVideo.FormattingEnabled = true;
             this.lBVideo.Location = new System.Drawing.Point(555, 88);
             this.lBVideo.Name = "lBVideo";
-            this.lBVideo.Size = new System.Drawing.Size(257, 342);
+            this.lBVideo.Size = new System.Drawing.Size(257, 338);
             this.lBVideo.TabIndex = 39;
             // 
             // btnExcluirVideo
