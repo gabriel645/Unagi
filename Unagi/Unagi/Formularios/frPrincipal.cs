@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using WMPLib;
 using System.IO;
 using Unagi.Classes;
+using Unagi.Estrutura;
 
 namespace Unagi.Formularios
 {
@@ -85,6 +86,26 @@ namespace Unagi.Formularios
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Pilha Pilha = new Pilha();
+            Playlists P = (Playlists)lbSelecPlaylist.SelectedItem;
+            foreach (Midia M in P.itens)
+            {
+                Pilha.Empilhar(M);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Fila Fila = new Fila();
+            Playlists P = (Playlists)lbSelecPlaylist.SelectedItem;
+            foreach (Midia M in P.itens)
+            {
+                Fila.Emfileirar(M);
+            }
         }
     }
 }

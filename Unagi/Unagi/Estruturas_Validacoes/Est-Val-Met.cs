@@ -455,7 +455,7 @@ namespace Unagi
         /// <summary>
         /// Classe Pilha Dinâmica
         /// </summary>
-        class Pilha
+        public class Pilha
         {
             //Representa o topo da pilha
             private NodoPilha topo = null;
@@ -508,7 +508,7 @@ namespace Unagi
                 }
             }
         }
-
+    }
         namespace Estrutura
         {
             class NodoFila
@@ -535,7 +535,7 @@ namespace Unagi
             /// <summary>
             /// Classe Pilha Dinâmica
             /// </summary>
-            class Fila
+            public class Fila
             {
                 //Representa o topo da pilha
                 private NodoFila primeiro = null;
@@ -609,4 +609,3 @@ namespace Unagi
     }
 
 
-}

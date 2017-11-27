@@ -172,4 +172,14 @@
         AAAL
 </value>
   </data>
+  <data name="button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAAD4SURBVDhPvZPPCgFRGMVnsBuP4Ak8B2UnnkGexgvgNSwU
+        WzsiTZZiIQtKkZW/v88dG92PewunfvXdO+ecmntngn+rFoZhD/pP2KubR+6KoAAlCoZwe2Esz6AIWXgv
+        AoOXgneMkpguTCe4QAsaCk0Qz41I2iQVYTrDLFmqwjNNCjNmR9GvCq/QBtvrCnIcz1d2KrRdgBUiToUH
+        xgrI52OjgmfvUxgnS1V4Jj6FC8aU2bEKSzj3KZTzWUKssACvMxSz3KLMNh43LBBxKlwzyj+tKcKz8in8
+        +qVsGfOQU8jj2bgW7sToyFEiJqmrjLED3Q908FZN5GcKgjse2H/dJbD3kwAAAABJRU5ErkJggg==
+</value>
+  </data>
 </root>
