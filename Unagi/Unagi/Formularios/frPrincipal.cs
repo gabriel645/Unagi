@@ -19,7 +19,6 @@ namespace Unagi.Formularios
         public frPrincipal()
         {
             InitializeComponent();
-            Player();
             lbSelecPlaylist.DisplayMember = "nomePlaylist";
 
 
@@ -31,16 +30,6 @@ namespace Unagi.Formularios
                     lbSelecPlaylist.DisplayMember = "nomePlaylist";
                 }
             }
-        }
-
-        public void Player()
-        {
-            //axWindowsMediaPlayer1.newPlaylist("foto", @"C:\Users\Sabrina\Downloads\ibagens\13254529_712710388831369_6742972320372427324_n");
-            axMediaPlayer.URL = @"C:\Users\Sabrina\Music\Foster the People\Torches\02-Pumped Up Kicks.m4aC:\Users\Sabrina\Pictures\memes\choro1.jpg";
-            axMediaPlayer.Ctlcontrols.play();
-            axMediaPlayer.Ctlcontrols.stop();
-
-
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -106,6 +95,43 @@ namespace Unagi.Formularios
             {
                 Fila.Emfileirar(M);
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Playlists P = (Playlists)lbSelecPlaylist.SelectedItem;
+            foreach (Midia item in P.itens)
+            {
+                bool proximo = true;
+
+                if (axMediaPlayer.playState == WMPPlayState.wmppsStopped)
+                {
+                    axMediaPlayer.Ctlcontrols.play();
+                    proximo = true;
+                }
+                                                
+                if (proximo)
+                {
+                    if (item is Musica)
+                    {
+                        axMediaPlayer.URL = (item as Musica).ArquivoMidia;
+                        proximo = false;
+                    }
+
+                    else if (item is Foto)
+                    {
+                        axMediaPlayer.URL = (item as Foto).ArquivoMidia;
+                        proximo = false;
+                    }
+
+                    else if (item is Video)
+                    {
+                        axMediaPlayer.URL = (item as Video).ArquivoMidia;
+                        proximo = false;
+                    }
+                }
+            }
+
         }
     }
 }
