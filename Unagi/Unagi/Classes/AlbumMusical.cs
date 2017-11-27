@@ -10,7 +10,7 @@ namespace Unagi
     {
         public static Lista Album = new Lista();  //add as musicas desse album na lista(criar metodo)
 
-
+        Lista MPertencentes = new Lista();
 
         string artista;
 

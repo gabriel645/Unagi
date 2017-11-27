@@ -21,13 +21,15 @@ namespace Unagi
         private int originalHeight;
 
         public frGerenciarPlaylist()
-        {
+        {            
             InitializeComponent();
+            this.Width = 620;
             originalWidth = this.Width;
             originalHeight = this.Height;
             CarregalbMidia();
             button6.Enabled = false;
-
+            lbMidias.DisplayMember = "Descricao";
+            lbPlaylist.DisplayMember = "Descricao";
         }
 
         public void CarregalbMidia()
@@ -35,16 +37,10 @@ namespace Unagi
             foreach (Midia M in Midia.tMidias)
             {
                 lbMidias.Items.Add(M);
-                lbMidias.DisplayMember = "Descricao";
             }
 
         }
-
-        private void btnVoltar_Click(object sender, EventArgs e)
-        {
-
-        }
-
+               
         private void btnVoltar_Click_1(object sender, EventArgs e)
         {
             Close();
@@ -52,8 +48,7 @@ namespace Unagi
 
         private void button8_Click(object sender, EventArgs e)
         {
-            this.Width = 1214;
-
+            this.Width = 1260;
         }
 
         private void lbMidias_SelectedIndexChanged(object sender, EventArgs e)
@@ -63,7 +58,6 @@ namespace Unagi
 
         private void btnAddPlaylist_Click(object sender, EventArgs e)
         {
-            lbPlaylist.DisplayMember = "Descricao";
             lbPlaylist.Items.Add(lbMidias.SelectedItem);
         }
 
@@ -96,34 +90,57 @@ namespace Unagi
 
         private void button2_Click(object sender, EventArgs e)
         {
-            foreach (Foto F in Midia.tMidias)
+            lbMidias.Items.Clear();
+            foreach (Midia F in Midia.tMidias)
             {
-                lbMidias.Items.Add(F);
-                lbMidias.DisplayMember = "Descricao";
+                if(F is Foto)                
+                    lbMidias.Items.Add(F);
+                
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            foreach (Video V in Midia.tMidias)
+            lbMidias.Items.Clear();
+            foreach (Midia V in Midia.tMidias)
             {
-                lbMidias.Items.Add(V);
-                lbMidias.DisplayMember = "Descricao";
+                if (V is Video)
+                    lbMidias.Items.Add(V);
             }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            foreach (Musica M in Midia.tMidias)
+            lbMidias.Items.Clear();
+            foreach (Midia M in Midia.tMidias)
             {
-                lbMidias.Items.Add(M);
-                lbMidias.DisplayMember = "Descricao";
+                if (M is Musica)
+                    lbMidias.Items.Add(M);
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             lbMidias.Sorted = true;
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            lbMidias.Items.Clear();
+            foreach (Midia M in Midia.tMidias)
+            {                
+                    lbMidias.Items.Add(M);
+            }
+        }
+
+        private void btnFila_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLista_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

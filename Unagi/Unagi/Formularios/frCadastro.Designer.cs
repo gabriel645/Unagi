@@ -373,12 +373,14 @@
             // 
             this.txtIdVideo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
             this.txtIdVideo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIdVideo.Enabled = false;
             this.txtIdVideo.Font = new System.Drawing.Font("Gadugi", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdVideo.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtIdVideo.Location = new System.Drawing.Point(61, 62);
             this.txtIdVideo.Name = "txtIdVideo";
             this.txtIdVideo.Size = new System.Drawing.Size(204, 22);
             this.txtIdVideo.TabIndex = 1;
+            this.txtIdVideo.TextChanged += new System.EventHandler(this.txtIdVideo_TextChanged);
             // 
             // label16
             // 
@@ -421,6 +423,7 @@
             // 
             this.txtIdMusica.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
             this.txtIdMusica.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIdMusica.Enabled = false;
             this.txtIdMusica.Font = new System.Drawing.Font("Gadugi", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdMusica.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtIdMusica.Location = new System.Drawing.Point(571, 44);
@@ -799,6 +802,7 @@
             // 
             this.txtIdAlbum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
             this.txtIdAlbum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIdAlbum.Enabled = false;
             this.txtIdAlbum.Font = new System.Drawing.Font("Gadugi", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdAlbum.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtIdAlbum.Location = new System.Drawing.Point(61, 37);
@@ -1003,6 +1007,7 @@
             // 
             this.txtIdFoto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
             this.txtIdFoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIdFoto.Enabled = false;
             this.txtIdFoto.Font = new System.Drawing.Font("Gadugi", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdFoto.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtIdFoto.Location = new System.Drawing.Point(61, 67);
@@ -1179,17 +1184,17 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(167)))), ((int)(((byte)(182)))));
-            this.ClientSize = new System.Drawing.Size(1188, 455);
+            this.ClientSize = new System.Drawing.Size(1260, 500);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCadastroMusica);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnCadastroAlbum);
             this.Controls.Add(this.bntCadastroVideo);
             this.Controls.Add(this.btnCadastroFoto);
-            this.Controls.Add(this.panelVideo);
             this.Controls.Add(this.panelMusica);
             this.Controls.Add(this.txtAnoFoto);
             this.Controls.Add(this.panelAlbum);
+            this.Controls.Add(this.panelVideo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frCadastro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;

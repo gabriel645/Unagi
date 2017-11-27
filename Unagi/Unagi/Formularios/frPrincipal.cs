@@ -20,6 +20,7 @@ namespace Unagi.Formularios
         public frPrincipal()
         {
             InitializeComponent();
+            this.CenterToScreen();
             lbSelecPlaylist.DisplayMember = "nomePlaylist";
 
             this.components = new Container();
@@ -33,7 +34,6 @@ namespace Unagi.Formularios
                 if (P is Playlists)
                 {
                     lbSelecPlaylist.Items.Add(P);
-                    lbSelecPlaylist.DisplayMember = "nomePlaylist";
                 }
             }
         }

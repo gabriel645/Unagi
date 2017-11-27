@@ -23,6 +23,21 @@ namespace Unagi
         }
         public static class Arquivo
         {
+            public static int setID()
+            {
+                if (!File.Exists("ID.txt"))
+                {
+                    var F =  File.Create("ID.txt");
+                    F.Close();
+                    File.WriteAllText("ID.txt","0");
+                    return 0;
+                }
+                int id = Convert.ToInt32(File.ReadAllText("ID.txt"));
+                File.WriteAllText("ID.txt", (++id).ToString());
+                return id;
+
+
+            }
             public static void CarregaMidias(Estrutura.Lista L)
             {
                 if (!File.Exists("Banco.txt"))

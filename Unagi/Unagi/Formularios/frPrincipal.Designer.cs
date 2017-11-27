@@ -195,10 +195,11 @@
             // lbSelecPlaylist
             // 
             this.lbSelecPlaylist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(93)))), ((int)(((byte)(158)))));
+            this.lbSelecPlaylist.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lbSelecPlaylist.FormattingEnabled = true;
             this.lbSelecPlaylist.Location = new System.Drawing.Point(956, 240);
             this.lbSelecPlaylist.Name = "lbSelecPlaylist";
-            this.lbSelecPlaylist.Size = new System.Drawing.Size(246, 147);
+            this.lbSelecPlaylist.Size = new System.Drawing.Size(246, 143);
             this.lbSelecPlaylist.TabIndex = 36;
             // 
             // button2

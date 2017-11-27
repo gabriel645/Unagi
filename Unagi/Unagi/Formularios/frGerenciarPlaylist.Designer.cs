@@ -48,6 +48,9 @@
             this.txtNomePlaylist = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,7 +63,7 @@
             this.panel1.Controls.Add(this.btnVoltar);
             this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(382, 454);
+            this.panel1.Size = new System.Drawing.Size(389, 499);
             this.panel1.TabIndex = 20;
             // 
             // button8
@@ -70,7 +73,7 @@
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ForeColor = System.Drawing.Color.Black;
-            this.button8.Location = new System.Drawing.Point(0, 224);
+            this.button8.Location = new System.Drawing.Point(1, 35);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(280, 39);
             this.button8.TabIndex = 38;
@@ -85,7 +88,7 @@
             this.btnPilha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPilha.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPilha.ForeColor = System.Drawing.Color.Black;
-            this.btnPilha.Location = new System.Drawing.Point(0, 179);
+            this.btnPilha.Location = new System.Drawing.Point(0, 170);
             this.btnPilha.Name = "btnPilha";
             this.btnPilha.Size = new System.Drawing.Size(280, 39);
             this.btnPilha.TabIndex = 23;
@@ -99,12 +102,13 @@
             this.btnFila.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFila.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFila.ForeColor = System.Drawing.Color.Black;
-            this.btnFila.Location = new System.Drawing.Point(0, 89);
+            this.btnFila.Location = new System.Drawing.Point(0, 80);
             this.btnFila.Name = "btnFila";
             this.btnFila.Size = new System.Drawing.Size(281, 39);
             this.btnFila.TabIndex = 22;
-            this.btnFila.Text = "TOCAR POR FILA";
+            this.btnFila.Text = "EXCLUIR";
             this.btnFila.UseVisualStyleBackColor = false;
+            this.btnFila.Click += new System.EventHandler(this.btnFila_Click);
             // 
             // btnLista
             // 
@@ -113,12 +117,13 @@
             this.btnLista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLista.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLista.ForeColor = System.Drawing.Color.Black;
-            this.btnLista.Location = new System.Drawing.Point(0, 134);
+            this.btnLista.Location = new System.Drawing.Point(0, 125);
             this.btnLista.Name = "btnLista";
             this.btnLista.Size = new System.Drawing.Size(281, 39);
             this.btnLista.TabIndex = 21;
-            this.btnLista.Text = "TOCAR POR LISTA";
+            this.btnLista.Text = "ALTERAR";
             this.btnLista.UseVisualStyleBackColor = false;
+            this.btnLista.Click += new System.EventHandler(this.btnLista_Click);
             // 
             // btnVoltar
             // 
@@ -142,7 +147,7 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.Color.Black;
-            this.button6.Location = new System.Drawing.Point(613, 30);
+            this.button6.Location = new System.Drawing.Point(801, 28);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(93, 32);
             this.button6.TabIndex = 37;
@@ -156,9 +161,9 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.Black;
-            this.button5.Location = new System.Drawing.Point(669, 368);
+            this.button5.Location = new System.Drawing.Point(883, 372);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(67, 29);
+            this.button5.Size = new System.Drawing.Size(66, 44);
             this.button5.TabIndex = 36;
             this.button5.Text = "ALBUM";
             this.button5.UseVisualStyleBackColor = false;
@@ -170,9 +175,9 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Location = new System.Drawing.Point(601, 368);
+            this.button4.Location = new System.Drawing.Point(815, 372);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(67, 29);
+            this.button4.Size = new System.Drawing.Size(67, 44);
             this.button4.TabIndex = 35;
             this.button4.Text = "MUSICA";
             this.button4.UseVisualStyleBackColor = false;
@@ -185,9 +190,9 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(540, 368);
+            this.button3.Location = new System.Drawing.Point(754, 372);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(60, 29);
+            this.button3.Size = new System.Drawing.Size(60, 44);
             this.button3.TabIndex = 34;
             this.button3.Text = "VIDEO";
             this.button3.UseVisualStyleBackColor = false;
@@ -200,9 +205,9 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(489, 368);
+            this.button2.Location = new System.Drawing.Point(703, 372);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(50, 29);
+            this.button2.Size = new System.Drawing.Size(50, 44);
             this.button2.TabIndex = 33;
             this.button2.Text = "FOTO";
             this.button2.UseVisualStyleBackColor = false;
@@ -215,7 +220,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(519, 30);
+            this.button1.Location = new System.Drawing.Point(707, 28);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(93, 32);
             this.button1.TabIndex = 32;
@@ -230,9 +235,9 @@
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.Color.Black;
-            this.button7.Location = new System.Drawing.Point(907, 378);
+            this.button7.Location = new System.Drawing.Point(1041, 377);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(201, 39);
+            this.button7.Size = new System.Drawing.Size(191, 39);
             this.button7.TabIndex = 24;
             this.button7.Text = "SALVAR PLAYLIST";
             this.button7.UseVisualStyleBackColor = false;
@@ -246,7 +251,7 @@
             this.btnAddPlaylist.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddPlaylist.ForeColor = System.Drawing.Color.Black;
             this.btnAddPlaylist.Image = ((System.Drawing.Image)(resources.GetObject("btnAddPlaylist.Image")));
-            this.btnAddPlaylist.Location = new System.Drawing.Point(784, 122);
+            this.btnAddPlaylist.Location = new System.Drawing.Point(972, 120);
             this.btnAddPlaylist.Name = "btnAddPlaylist";
             this.btnAddPlaylist.Size = new System.Drawing.Size(47, 39);
             this.btnAddPlaylist.TabIndex = 38;
@@ -255,34 +260,39 @@
             // 
             // lbMidias
             // 
+            this.lbMidias.BackColor = System.Drawing.Color.Silver;
+            this.lbMidias.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lbMidias.FormattingEnabled = true;
-            this.lbMidias.Location = new System.Drawing.Point(459, 57);
+            this.lbMidias.Location = new System.Drawing.Point(646, 57);
             this.lbMidias.Name = "lbMidias";
-            this.lbMidias.Size = new System.Drawing.Size(303, 316);
+            this.lbMidias.Size = new System.Drawing.Size(303, 312);
             this.lbMidias.TabIndex = 39;
             this.lbMidias.SelectedIndexChanged += new System.EventHandler(this.lbMidias_SelectedIndexChanged);
             // 
             // lbPlaylist
             // 
+            this.lbPlaylist.BackColor = System.Drawing.Color.Silver;
+            this.lbPlaylist.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lbPlaylist.FormattingEnabled = true;
-            this.lbPlaylist.Location = new System.Drawing.Point(859, 82);
+            this.lbPlaylist.Location = new System.Drawing.Point(1041, 81);
             this.lbPlaylist.Name = "lbPlaylist";
-            this.lbPlaylist.Size = new System.Drawing.Size(303, 290);
+            this.lbPlaylist.Size = new System.Drawing.Size(191, 286);
             this.lbPlaylist.TabIndex = 40;
             this.lbPlaylist.SelectedIndexChanged += new System.EventHandler(this.lbPlaylist_SelectedIndexChanged);
             // 
             // txtNomePlaylist
             // 
-            this.txtNomePlaylist.Location = new System.Drawing.Point(912, 58);
+            this.txtNomePlaylist.BackColor = System.Drawing.Color.Silver;
+            this.txtNomePlaylist.Location = new System.Drawing.Point(1094, 57);
             this.txtNomePlaylist.Name = "txtNomePlaylist";
-            this.txtNomePlaylist.Size = new System.Drawing.Size(250, 20);
+            this.txtNomePlaylist.Size = new System.Drawing.Size(138, 20);
             this.txtNomePlaylist.TabIndex = 41;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(856, 57);
+            this.label1.Location = new System.Drawing.Point(1038, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 20);
             this.label1.TabIndex = 42;
@@ -296,19 +306,57 @@
             this.button9.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.ForeColor = System.Drawing.Color.Black;
             this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
-            this.button9.Location = new System.Drawing.Point(784, 196);
+            this.button9.Location = new System.Drawing.Point(972, 194);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(47, 39);
             this.button9.TabIndex = 43;
             this.button9.UseVisualStyleBackColor = false;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.button10.FlatAppearance.BorderSize = 0;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.ForeColor = System.Drawing.Color.Black;
+            this.button10.Location = new System.Drawing.Point(647, 372);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(55, 44);
+            this.button10.TabIndex = 44;
+            this.button10.Text = "TODAS";
+            this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.BackColor = System.Drawing.Color.Silver;
+            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(409, 57);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(191, 286);
+            this.listBox1.TabIndex = 45;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(452, 28);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 23);
+            this.label2.TabIndex = 46;
+            this.label2.Text = "Playlists";
+            // 
             // frGerenciarPlaylist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
-            this.ClientSize = new System.Drawing.Size(1219, 455);
+            this.ClientSize = new System.Drawing.Size(1260, 500);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.button10);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.txtNomePlaylist);
             this.Controls.Add(this.label1);
@@ -354,5 +402,8 @@
         private System.Windows.Forms.TextBox txtNomePlaylist;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label2;
     }
 }

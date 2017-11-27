@@ -22,6 +22,7 @@ namespace Unagi.Formularios
         public frCadastro()
         {
             InitializeComponent();
+            this.CenterToScreen();
             originalWidth = this.Width;
             originalHeight = this.Height;
 
@@ -227,7 +228,8 @@ namespace Unagi.Formularios
         private void btnSalvarMusica_Click(object sender, EventArgs e)
         {
             Musica M = new Musica();
-            M.Id = Convert.ToInt32(txtIdMusica.Text);
+            M.Id = Arquivo.setID();
+            txtIdMusica.Text = M.Id.ToString();
             M.Descricao = txtDescMusica.Text;
             M.Volume = Convert.ToInt32(txtVolumeMusica.Text);
             M.Duracao = Convert.ToDouble(txtDuracaoMusica.Text);
@@ -254,7 +256,8 @@ namespace Unagi.Formularios
         private void btnCadastrarFoto_Click(object sender, EventArgs e) //Salva os atributos da foto! Faltam as validações
         {
             Foto F = new Foto();
-            F.Id = Convert.ToInt32(txtIdFoto.Text);
+            F.Id = Arquivo.setID();
+            txtIdFoto.Text = F.Id.ToString();
             F.Descricao = txtDescFoto.Text;
             F.ArquivoMidia = txtDiretorioFoto.Text;
             F.Localizacao = txtLocalFoto.Text;
@@ -278,7 +281,8 @@ namespace Unagi.Formularios
         private void btnSalvarVideo_Click_1(object sender, EventArgs e)
         {
             Video V = new Video();
-            V.Id = Convert.ToInt32(txtIdVideo.Text);
+            V.Id = Arquivo.setID();
+            txtIdVideo.Text = V.Id.ToString();
             V.Descricao = txtDescVideo.Text;
 
             if (cbLegendaVideo.SelectedItem.ToString() == "sim")
@@ -420,6 +424,11 @@ namespace Unagi.Formularios
         private void btnExcluirVideo_Click(object sender, EventArgs e)
         {
             Video.ListaVideos.RemoverObjeto(lBVideo.SelectedItem);
+        }
+
+        private void txtIdVideo_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
