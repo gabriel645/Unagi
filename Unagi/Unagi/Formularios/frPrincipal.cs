@@ -11,6 +11,7 @@ using WMPLib;
 using System.IO;
 using Unagi.Classes;
 using Unagi.Estrutura;
+using System.Diagnostics;
 
 namespace Unagi.Formularios
 {
@@ -21,6 +22,11 @@ namespace Unagi.Formularios
             InitializeComponent();
             lbSelecPlaylist.DisplayMember = "nomePlaylist";
 
+            this.components = new Container();
+            this.timer1 = new Timer(this.components);
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timer1.Interval = 1;
 
             foreach (Midia P in Midia.tMidias)
             {
@@ -31,6 +37,40 @@ namespace Unagi.Formularios
                 }
             }
         }
+
+        private Timer timer1;
+        Stopwatch fotoTimer = new Stopwatch();
+        private int tempoFoto = 0;
+
+        bool proximo = true;
+        int indice = 0;
+        object pATocar;
+        private void timer1_Tick(object sender, System.EventArgs e)
+        {
+            if (axMediaPlayer.playState == WMPPlayState.wmppsStopped)
+            {
+                //axMediaPlayer.Ctlcontrols.play();
+                proximo = true;                
+            }
+            if (proximo)
+            {
+                playProximo(pATocar);
+                indice++;
+                proximo = false;
+            }
+            if (fotoTimer.IsRunning)
+                axMediaPlayer.Ctlcontrols.pause();
+            if (fotoTimer.Elapsed.Seconds >= tempoFoto && fotoTimer.IsRunning)
+            {
+                axMediaPlayer.Ctlcontrols.stop();
+                fotoTimer.Stop();
+                fotoTimer.Reset();
+            }
+
+
+        }
+
+
 
         private void button6_Click(object sender, EventArgs e)
         {
@@ -79,59 +119,96 @@ namespace Unagi.Formularios
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Pilha Pilha = new Pilha();
+            Pilha pilha = new Pilha();
             Playlists P = (Playlists)lbSelecPlaylist.SelectedItem;
             foreach (Midia M in P.itens)
             {
-                Pilha.Empilhar(M);
+                pilha.Empilhar(M);
             }
+
+            pATocar = pilha;
+            indice = 0;
+            proximo = true;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Fila Fila = new Fila();
+            Fila fila = new Fila();
             Playlists P = (Playlists)lbSelecPlaylist.SelectedItem;
             foreach (Midia M in P.itens)
             {
-                Fila.Emfileirar(M);
+                fila.Emfileirar(M);
             }
+            pATocar = fila;
+            indice = 0;
+            proximo = true;
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Playlists P = (Playlists)lbSelecPlaylist.SelectedItem;
-            foreach (Midia item in P.itens)
+            pATocar = (Playlists)lbSelecPlaylist.SelectedItem;
+            indice = 0;
+            proximo = true;
+        }
+
+        int qtd = 0;
+        public void playProximo(object P)
+        {
+            if (P is Playlists)
             {
-                bool proximo = true;
+                if (indice >= (P as Playlists).itens.Tamanho())
+                    indice = 0;
 
-                if (axMediaPlayer.playState == WMPPlayState.wmppsStopped)
-                {
-                    axMediaPlayer.Ctlcontrols.play();
-                    proximo = true;
-                }
-                                                
-                if (proximo)
-                {
-                    if (item is Musica)
-                    {
-                        axMediaPlayer.URL = (item as Musica).ArquivoMidia;
-                        proximo = false;
-                    }
+                Midia item = (Midia)(P as Playlists).itens.RetornaDaPosicao(indice);
 
-                    else if (item is Foto)
-                    {
-                        axMediaPlayer.URL = (item as Foto).ArquivoMidia;
-                        proximo = false;
-                    }
+                setURL(item);
 
-                    else if (item is Video)
-                    {
-                        axMediaPlayer.URL = (item as Video).ArquivoMidia;
-                        proximo = false;
-                    }
-                }
+            }
+            if(P is Pilha)
+            {
+
+                //Pilha aux = new Pilha();                
+                if (indice == 0)
+                    qtd = (P as Pilha).Quantidade;
+                if (indice >= qtd)
+                    return;
+                Midia item = (Midia)(P as Pilha).Desempilhar();
+                setURL(item);
+                
+            }
+            if(P is Fila)
+            {
+                //Pilha aux = new Pilha();
+
+                if (indice == 0)
+                    qtd = (P as Fila).Quantidade;
+                if (indice >= qtd)
+                    return;
+                Midia item = (Midia)(P as Fila).Desemfilerar();
+                setURL(item);
+            }
+            axMediaPlayer.Ctlcontrols.play();
+        }
+        public void setURL(Midia item)
+        {
+            if (item is Musica)
+            {
+                axMediaPlayer.URL = (item as Musica).ArquivoMidia;
             }
 
+            else if (item is Foto)
+            {
+                axMediaPlayer.URL = (item as Foto).ArquivoMidia;
+                tempoFoto = (item as Foto).TempoDeExibicao;
+                fotoTimer.Start();
+            }
+
+            else if (item is Video)
+            {
+                axMediaPlayer.URL = (item as Video).ArquivoMidia;
+            }
         }
     }
+
 }
+

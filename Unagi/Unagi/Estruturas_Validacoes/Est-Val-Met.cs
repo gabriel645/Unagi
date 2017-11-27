@@ -199,7 +199,8 @@ namespace Unagi
             Nodo ultimo = null;
             int qtde = 0;
 
-
+            public int Tamanho()
+            { return qtde;}
             private void InserirNaPosicao(Nodo anterior, object valor)
             {
                 Nodo novo = new Nodo();
@@ -309,6 +310,21 @@ namespace Unagi
                 }
             }
 
+            public object RetornaDaPosicao(int posicao)
+            {
+
+                if (posicao >= qtde || posicao < 0 || qtde == 0)
+                    throw new Exception("Não é possível retornar.");
+                
+                else
+                {
+                    //nodoApagado irá armazenar o nodo será apagado.
+                    Nodo aux = primeiro;
+                    for (int i = 1; i <= posicao; i++)  // encontra o elemento anterior ao que será apagado
+                        aux = aux.Proximo;
+                    return aux.Dado;
+                }
+            }
             /// <summary>
             /// Remove a lista um objeto passado, se existir.
             /// </summary>
