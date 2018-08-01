@@ -46,6 +46,7 @@ namespace Unagi
         public abstract void Excluir();
 
         public abstract void Consultar(int id);
+        //teste
     }
 }
 
